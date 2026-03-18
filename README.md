@@ -6,65 +6,65 @@
 [![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io/)
 [![BullMQ](https://img.shields.io/badge/BullMQ-FF4500?style=for-the-badge&logo=redis&logoColor=white)](https://bullmq.io/)
 
-Um orquestrador de ferramentas de segurança de alto desempenho, construído com **NestJS**. Desenhado para gerir, automatizar e monitorizar análises de segurança (como o Semgrep) em múltiplos projetos, num ambiente escalável.
+A high-performance security tool orchestrator built with **NestJS**. Designed to manage, automate, and monitor security scans (such as Semgrep) across multiple projects in a scalable environment.
 
 ---
 
-## 🌟 Funcionalidades
+## 🌟 Features
 
-- **Gestão de Projetos** — Cria e organiza múltiplos repositórios/projetos a analisar.
-- **Orquestração de Scans** — Análise de segurança automatizada com ferramentas industry-standard.
-- **Sistema de Filas (BullMQ)** — Gestão inteligente de jobs de scan para garantir estabilidade e escalabilidade.
-- **Monitorização em Tempo Real** — Dashboard em EJS para acompanhamento do estado dos scans ao vivo.
-- **Armazenamento Relacional** — Integração com PostgreSQL via Prisma para integridade robusta dos dados.
-- **Exportação de Relatórios** — Geração de relatórios a partir dos resultados dos scans.
+- **Project Management** — Create and organize multiple repositories/projects to be scanned.
+- **Scan Orchestration** — Automated security analysis using industry-standard tools.
+- **Queue System (BullMQ)** — Intelligent scan job handling to ensure stability and scalability.
+- **Real-time Monitoring** — EJS-powered dashboard for live scan status tracking.
+- **Relational Data Storage** — PostgreSQL integration via Prisma for robust data integrity.
+- **Report Exporting** — Generate structured reports from scan results effortlessly.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Technology Stack
 
-| Tecnologia | Função |
+| Technology | Purpose |
 | :--- | :--- |
-| **NestJS** | Framework principal |
-| **Prisma** | ORM da base de dados |
-| **PostgreSQL** | Base de dados relacional |
-| **Redis** | Message broker em memória para o BullMQ |
-| **BullMQ** | Fila de jobs distribuída |
-| **EJS** | Renderização server-side do Dashboard |
-| **Docker** | Infraestrutura de containerização |
+| **NestJS** | Core Framework |
+| **Prisma** | Database ORM |
+| **PostgreSQL** | Relational Database |
+| **Redis** | In-memory message broker for BullMQ |
+| **BullMQ** | Distributed Job Queue |
+| **EJS** | Server-side rendering for the Dashboard |
+| **Docker** | Containerization infrastructure |
 
 ---
 
-## 🚀 Como Começar
+## 🚀 Getting Started
 
-### Pré-requisitos
+### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18+)
-- [Docker](https://www.docker.com/) e Docker Compose
+- [Docker](https://www.docker.com/) & Docker Compose
 - [npm](https://www.npmjs.com/)
 
-### 1. Configuração do Projeto
+### 1. Project Setup
 
 ```bash
-# Clonar o repositório
+# Clone the repository
 git clone https://github.com/DiogoAfonsoMorais/AppSec.git
 cd AppSec/orchestrator
 
-# Instalar dependências
+# Install dependencies
 npm install
 ```
 
-### 2. Infraestrutura
+### 2. Infrastructure
 
-Inicia os serviços necessários (PostgreSQL e Redis) via Docker:
+Spin up the required services (PostgreSQL & Redis) using Docker:
 
 ```bash
 docker-compose up -d
 ```
 
-### 3. Variáveis de Ambiente
+### 3. Environment Variables
 
-Cria um ficheiro `.env` na raiz do projeto:
+Create a `.env` file in the project root:
 
 ```env
 DATABASE_URL="postgresql://orchestrator:secretpassword@127.0.0.1:5432/appsec?schema=public"
@@ -73,9 +73,9 @@ REDIS_PORT=6379
 PORT=3003
 ```
 
-### 4. Migração da Base de Dados
+### 4. Database Migration
 
-Sincroniza o schema da base de dados com o Prisma:
+Sync your database schema with Prisma:
 
 ```bash
 npx prisma migrate dev
@@ -83,67 +83,67 @@ npx prisma migrate dev
 
 ---
 
-## 🏃 Executar o Projeto
+## 🏃 Running the Project
 
 ```bash
-# Modo desenvolvimento (watch mode)
+# Development (watch mode)
 npm run start:dev
 
-# Produção
+# Production
 npm run start:prod
 ```
 
-A aplicação fica disponível em `http://localhost:3003`.
+The application will be available at `http://localhost:3003`.
 
 ---
 
 ## 🔌 API
 
-### Projetos
+### Projects
 
-| Método | Endpoint | Descrição |
+| Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| `POST` | `/projects` | Criar um novo projeto |
-| `GET` | `/projects` | Listar todos os projetos |
-| `PATCH` | `/projects/:id` | Atualizar um projeto |
-| `DELETE` | `/projects/:id` | Remover um projeto (cascading) |
+| `POST` | `/projects` | Create a new project |
+| `GET` | `/projects` | List all projects |
+| `PATCH` | `/projects/:id` | Update a project |
+| `DELETE` | `/projects/:id` | Remove a project (cascading) |
 
 ### Scans
 
-| Método | Endpoint | Descrição |
+| Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| `POST` | `/scans` | Iniciar um novo scan de segurança |
-| `GET` | `/scans/:id/export` | Exportar relatório de um scan |
-| `POST` | `/scans/:id/cancel` | Cancelar um scan em curso |
+| `POST` | `/scans` | Trigger a new security scan |
+| `GET` | `/scans/:id/export` | Export a scan report |
+| `POST` | `/scans/:id/cancel` | Cancel an ongoing scan |
 
 ### Dashboard
 
-Acede a `http://localhost:3003/dashboard` para visualizar o estado dos scans em tempo real e o histórico de análises.
+Access `http://localhost:3003/dashboard` to view real-time scan statuses and historical analysis data.
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```text
 orchestrator/
 └── src/
-    ├── dashboard/     # Views EJS e lógica de frontend
-    ├── orchestrator/  # Lógica central de gestão de jobs
-    ├── prisma/        # Schema e cliente da base de dados
-    ├── projects/      # Módulo de gestão de projetos
-    ├── scans/         # Ciclo de vida e resultados dos scans
-    ├── tools/         # Interface com ferramentas externas (ex: Semgrep)
-    └── main.ts        # Entry point da aplicação
+    ├── dashboard/     # EJS views & frontend logic
+    ├── orchestrator/  # Core scan job management logic
+    ├── prisma/        # Database schema & client
+    ├── projects/      # Project management module
+    ├── scans/         # Scan lifecycle & results
+    ├── tools/         # Interface for external security tools (e.g. Semgrep)
+    └── main.ts        # Application entry point
 ```
 
 ---
 
-## 📜 Licença
+## 📜 License
 
-Este projeto está licenciado como **UNLICENSED** (Privado) por omissão.
+This project is **UNLICENSED** (Private) by default.
 
 ---
 
 <p align="center">
-  Desenvolvido por <a href="https://github.com/DiogoAfonsoMorais">Diogo Afonso Morais</a>
+  Developed by <a href="https://github.com/DiogoAfonsoMorais">Diogo Afonso Morais</a>
 </p>
