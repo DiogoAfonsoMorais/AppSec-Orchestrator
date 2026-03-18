@@ -1,0 +1,82 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  name        String
+  description String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  scans       Scan[]
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  role         String   @default("USER") // USER, ADMIN
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  scans        Scan[]
+}
+
+model Scan {
+  id         String    @id @default(uuid())
+  target     String    // The repository URL, container name, or web app URL
+  targetType String    // REPO, CONTAINER, WEB
+  profile    String    // QUICK, FULL, CUSTOM
+  status       String    @default("PENDING")
+  currentStage String?   @default("INITIALIZING")
+  progress     Int       @default(0)
+  riskScore    Float?     @default(0)
+  liveLogs     String?   @db.Text
+  createdAt    DateTime  @default(now())
+  finishedAt DateTime?
+  // Pentesting Variables
+  headers    Json?      // Custom HTTP headers (JSON)
+  authConfig Json?      // { type: 'BEARER', value: '...' } or { type: 'COOKIE', value: '...' }
+  
+  userId     String?
+  user       User?     @relation(fields: [userId], references: [id])
+  projectId  String?
+  project    Project?  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  toolRuns   ToolRun[]
+  findings   Finding[]
+}
+
+model ToolRun {
+  id         String    @id @default(uuid())
+  scanId     String
+  toolName   String    // semgrep, gitleaks, nmap, etc.
+  status     String    @default("PENDING") // PENDING, IN_PROGRESS, COMPLETED, FAILED
+  outputRaw  String?   @db.Text
+  startedAt  DateTime?
+  finishedAt DateTime?
+  scan       Scan      @relation(fields: [scanId], references: [id], onDelete: Cascade)
+}
+
+model Finding {
+  id             String   @id @default(uuid())
+  scanId         String
+  toolName       String
+  severity       String   // INFO, LOW, MEDIUM, HIGH, CRITICAL
+  description    String   @db.Text
+  owaspCategory  String?  // e.g., A01:2021-Broken Access Control
+  evidence       String?  @db.Text
+  recommendation String?  @db.Text
+  filePath       String?  // the file where vulnerability was found (if applicable)
+  metadata       Json?    // Optional JSON for tool-specific extra data
+  createdAt      DateTime @default(now())
+  scan           Scan     @relation(fields: [scanId], references: [id], onDelete: Cascade)
+}

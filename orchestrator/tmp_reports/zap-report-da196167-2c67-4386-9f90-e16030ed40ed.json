@@ -1,0 +1,69 @@
+{
+	"@programName": "ZAP",
+	"@version": "2.17.0",
+	"@generated": "Wed, 18 Mar 2026 15:36:56",
+	"created": "2026-03-18T15:36:56.874679210Z",
+	"insights":[
+		{
+			"level": "Low",
+			"reason": "Warning",
+			"site": "",
+			"key": "insight.log.error",
+			"description": "ZAP errors logged - see the zap.log file for details",
+			"statistic": "3"
+		},
+		{
+			"level": "Low",
+			"reason": "Warning",
+			"site": "",
+			"key": "insight.log.warn",
+			"description": "ZAP warnings logged - see the zap.log file for details",
+			"statistic": "109"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "",
+			"key": "insight.network.failure",
+			"description": "Percentage of network failures",
+			"statistic": "90"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.ctype.text/plain",
+			"description": "Percentage of endpoints with content type text/plain",
+			"statistic": "100"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.method.GET",
+			"description": "Percentage of endpoints with method GET",
+			"statistic": "100"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.total",
+			"description": "Count of total endpoints",
+			"statistic": "1"
+		}
+	],
+	"site":[ 
+		{
+			"@name": "https://ottiu.com",
+			"@host": "ottiu.com",
+			"@port": "443",
+			"@ssl": "true",
+			"alerts": [ 
+			]
+		}
+	],
+	"sequences":[
+	]
+
+}

@@ -1,0 +1,1479 @@
+{
+	"@programName": "ZAP",
+	"@version": "2.17.0",
+	"@generated": "Wed, 18 Mar 2026 10:45:38",
+	"created": "2026-03-18T10:45:38.129921419Z",
+	"insights":[
+		{
+			"level": "Low",
+			"reason": "Warning",
+			"site": "",
+			"key": "insight.log.warn",
+			"description": "ZAP warnings logged - see the zap.log file for details",
+			"statistic": "2"
+		},
+		{
+			"level": "Low",
+			"reason": "Exceeded High",
+			"site": "https://ottiu.com",
+			"key": "insight.response.slow",
+			"description": "Percentage of slow responses",
+			"statistic": "75"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.code.2xx",
+			"description": "Percentage of responses with status code 2xx",
+			"statistic": "99"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.code.3xx",
+			"description": "Percentage of responses with status code 3xx",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.code.4xx",
+			"description": "Percentage of responses with status code 4xx",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.ctype.application/javascript",
+			"description": "Percentage of endpoints with content type application/javascript",
+			"statistic": "2"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.ctype.image/gif",
+			"description": "Percentage of endpoints with content type image/gif",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.ctype.image/jpeg",
+			"description": "Percentage of endpoints with content type image/jpeg",
+			"statistic": "73"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.ctype.image/png",
+			"description": "Percentage of endpoints with content type image/png",
+			"statistic": "6"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.ctype.image/webp",
+			"description": "Percentage of endpoints with content type image/webp",
+			"statistic": "3"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.ctype.text/css",
+			"description": "Percentage of endpoints with content type text/css",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.ctype.text/html",
+			"description": "Percentage of endpoints with content type text/html",
+			"statistic": "10"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.ctype.text/plain",
+			"description": "Percentage of endpoints with content type text/plain",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.ctype.text/xml",
+			"description": "Percentage of endpoints with content type text/xml",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.method.GET",
+			"description": "Percentage of endpoints with method GET",
+			"statistic": "99"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://ottiu.com",
+			"key": "insight.endpoint.total",
+			"description": "Count of total endpoints",
+			"statistic": "2742"
+		}
+	],
+	"site":[ 
+		{
+			"@name": "https://ottiu.com",
+			"@host": "ottiu.com",
+			"@port": "443",
+			"@ssl": "true",
+			"alerts": [ 
+				{
+					"pluginid": "10202",
+					"alertRef": "10202",
+					"alert": "Absence of Anti-CSRF Tokens",
+					"name": "Absence of Anti-CSRF Tokens",
+					"riskcode": "2",
+					"confidence": "1",
+					"riskdesc": "Medium (Low)",
+					"desc": "<p>No Anti-CSRF tokens were found in a HTML submission form.</p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p><p></p><p>CSRF attacks are effective in a number of situations, including:</p><p>    * The victim has an active session on the target site.</p><p>    * The victim is authenticated via HTTP auth on the target site.</p><p>    * The victim is on the same local network as the target site.</p><p></p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>",
+					"instances":[ 
+						{
+							"id": "9",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method='post' enctype='multipart/form-data'  id='gform_1'  action='/' data-formid='1' novalidate>",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 3: \"choice_1_4_1\" \"choice_1_4_2\" \"choice_1_4_3\" \"choice_1_4_4\" \"choice_1_4_5\" \"gform_field_values\" \"gform_source_page_number_1\" \"gform_style_settings_1\" \"gform_submission_method\" \"gform_submit\" \"gform_submit_button_1\" \"gform_target_page_number_1\" \"gform_theme_1\" \"gform_unique_id\" \"input_1_10\" \"input_1_15\" \"input_1_16\" \"input_1_17\" \"input_1_18\" \"input_1_19\" \"input_1_1_3\" \"input_1_1_6\" \"input_1_2\" \"input_1_9\" \"is_submit_1\" \"state_1\" ]."
+						},
+						{
+							"id": "83",
+							"uri": "https://ottiu.com/category/lifestyle-entertaining/",
+							"nodeName": "https:\/\/ottiu.com\/category\/lifestyle-entertaining\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method='post' enctype='multipart/form-data'  id='gform_1'  action='/category/lifestyle-entertaining/' data-formid='1' novalidate>",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 3: \"choice_1_4_1\" \"choice_1_4_2\" \"choice_1_4_3\" \"choice_1_4_4\" \"choice_1_4_5\" \"gform_field_values\" \"gform_source_page_number_1\" \"gform_style_settings_1\" \"gform_submission_method\" \"gform_submit\" \"gform_submit_button_1\" \"gform_target_page_number_1\" \"gform_theme_1\" \"gform_unique_id\" \"input_1_10\" \"input_1_15\" \"input_1_16\" \"input_1_17\" \"input_1_18\" \"input_1_19\" \"input_1_1_3\" \"input_1_1_6\" \"input_1_2\" \"input_1_9\" \"is_submit_1\" \"state_1\" ]."
+						},
+						{
+							"id": "70",
+							"uri": "https://ottiu.com/product-category/beds/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/beds\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method='post' enctype='multipart/form-data'  id='gform_1'  action='/product-category/beds/' data-formid='1' novalidate>",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 3: \"choice_1_4_1\" \"choice_1_4_2\" \"choice_1_4_3\" \"choice_1_4_4\" \"choice_1_4_5\" \"gform_field_values\" \"gform_source_page_number_1\" \"gform_style_settings_1\" \"gform_submission_method\" \"gform_submit\" \"gform_submit_button_1\" \"gform_target_page_number_1\" \"gform_theme_1\" \"gform_unique_id\" \"input_1_10\" \"input_1_15\" \"input_1_16\" \"input_1_17\" \"input_1_18\" \"input_1_19\" \"input_1_1_3\" \"input_1_1_6\" \"input_1_2\" \"input_1_9\" \"is_submit_1\" \"state_1\" ]."
+						},
+						{
+							"id": "74",
+							"uri": "https://ottiu.com/product-category/dining-chair/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/dining-chair\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method='post' enctype='multipart/form-data'  id='gform_1'  action='/product-category/dining-chair/?utm_source=Pinterest&#038;utm_medium=organic' data-formid='1' novalidate>",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 3: \"choice_1_4_1\" \"choice_1_4_2\" \"choice_1_4_3\" \"choice_1_4_4\" \"choice_1_4_5\" \"gform_field_values\" \"gform_source_page_number_1\" \"gform_style_settings_1\" \"gform_submission_method\" \"gform_submit\" \"gform_submit_button_1\" \"gform_target_page_number_1\" \"gform_theme_1\" \"gform_unique_id\" \"input_1_10\" \"input_1_15\" \"input_1_16\" \"input_1_17\" \"input_1_18\" \"input_1_19\" \"input_1_1_3\" \"input_1_1_6\" \"input_1_2\" \"input_1_9\" \"is_submit_1\" \"state_1\" ]."
+						},
+						{
+							"id": "73",
+							"uri": "https://ottiu.com/product-category/sofa/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/sofa\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method='post' enctype='multipart/form-data'  id='gform_1'  action='/product-category/sofa/' data-formid='1' novalidate>",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 3: \"choice_1_4_1\" \"choice_1_4_2\" \"choice_1_4_3\" \"choice_1_4_4\" \"choice_1_4_5\" \"gform_field_values\" \"gform_source_page_number_1\" \"gform_style_settings_1\" \"gform_submission_method\" \"gform_submit\" \"gform_submit_button_1\" \"gform_target_page_number_1\" \"gform_theme_1\" \"gform_unique_id\" \"input_1_10\" \"input_1_15\" \"input_1_16\" \"input_1_17\" \"input_1_18\" \"input_1_19\" \"input_1_1_3\" \"input_1_1_6\" \"input_1_2\" \"input_1_9\" \"is_submit_1\" \"state_1\" ]."
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 3: \"choice_1_4_1\" \"choice_1_4_2\" \"choice_1_4_3\" \"choice_1_4_4\" \"choice_1_4_5\" \"gform_field_values\" \"gform_source_page_number_1\" \"gform_style_settings_1\" \"gform_submission_method\" \"gform_submit\" \"gform_submit_button_1\" \"gform_target_page_number_1\" \"gform_theme_1\" \"gform_unique_id\" \"input_1_10\" \"input_1_15\" \"input_1_16\" \"input_1_17\" \"input_1_18\" \"input_1_19\" \"input_1_1_3\" \"input_1_1_6\" \"input_1_2\" \"input_1_9\" \"is_submit_1\" \"state_1\" ].</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10038",
+					"alertRef": "10038-1",
+					"alert": "Content Security Policy (CSP) Header Not Set",
+					"name": "Content Security Policy (CSP) Header Not Set",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
+					"instances":[ 
+						{
+							"id": "4",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "69",
+							"uri": "https://ottiu.com/category/lifestyle-entertaining/",
+							"nodeName": "https:\/\/ottiu.com\/category\/lifestyle-entertaining\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "60",
+							"uri": "https://ottiu.com/product-category/beds/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/beds\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "67",
+							"uri": "https://ottiu.com/product-category/sofa/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/sofa\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "48",
+							"uri": "https://ottiu.com/wp-content/uploads/Landing-Page-St.Valentines.mp4",
+							"nodeName": "https:\/\/ottiu.com\/wp-content\/uploads\/Landing-Page-St.Valentines.mp4",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10099",
+					"alertRef": "10099",
+					"alert": "Source Code Disclosure - SQL",
+					"name": "Source Code Disclosure - SQL",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>Application Source Code was disclosed by the web server. - SQL</p>",
+					"instances":[ 
+						{
+							"id": "139",
+							"uri": "https://ottiu.com/customize-in-wood/",
+							"nodeName": "https:\/\/ottiu.com\/customize-in-wood\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select the best part of the wood that is mainly used as solid wood, recalling the ancient carpentry laboratories and the respect for authentic manufacture. From drying to processing, every detail is taken care of with the utmost dedication and respect for the raw material. ",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"systemic": false,
+					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://nhimg.org/twitter-breach</p>",
+					"cweid": "540",
+					"wascid": "13",
+					"sourceid": "12374"
+				},
+				{
+					"pluginid": "90003",
+					"alertRef": "90003",
+					"alert": "Sub Resource Integrity Attribute Missing",
+					"name": "Sub Resource Integrity Attribute Missing",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content.</p>",
+					"instances":[ 
+						{
+							"id": "17",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel='stylesheet' id='hustle-fonts-css' href='https://fonts.bunny.net/css?family=Open+Sans%3Aregular%2C700&#038;display=swap&#038;ver=1.0' type='text/css' media='all' />",
+							"otherinfo": ""
+						},
+						{
+							"id": "13",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-53257393-1\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "14",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://emotionalbrands123.activehosted.com/f/embed.php?id=15\" type=\"text/javascript\" charset=\"utf-8\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "15",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://emotionalbrands123.activehosted.com/f/embed.php?id=45\" type=\"text/javascript\" charset=\"utf-8\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "94",
+							"uri": "https://ottiu.com/product-category/beds/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/beds\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-53257393-1\"></script>",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
+					"cweid": "345",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10003",
+					"alertRef": "10003",
+					"alert": "Vulnerable JS Library",
+					"name": "Vulnerable JS Library",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>The identified library appears to be vulnerable.</p>",
+					"instances":[ 
+						{
+							"id": "138",
+							"uri": "https://ottiu.com/wp-content/themes/decofurniture/assets/js/lib/bootstrap.min.js",
+							"nodeName": "https:\/\/ottiu.com\/wp-content\/themes\/decofurniture\/assets\/js\/lib\/bootstrap.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "* Bootstrap v3.3.5",
+							"otherinfo": "The identified library bootstrap, version 3.3.5 is vulnerable.\nCVE-2018-14041\nCVE-2019-8331\nCVE-2018-14040\nCVE-2018-20677\nCVE-2018-20676\nCVE-2018-14042\nCVE-2016-10735\nCVE-2024-6485\nhttps://nvd.nist.gov/vuln/detail/CVE-2024-6485\nhttps://github.com/twbs/bootstrap/issues/28236\nhttps://www.herodevs.com/vulnerability-directory/cve-2024-6485\nhttps://github.com/advisories/GHSA-pj7m-g53m-7638\nhttps://github.com/twbs/bootstrap/issues/20184\nhttps://github.com/advisories/GHSA-vxmc-5x29-h64v\nhttps://github.com/advisories/GHSA-ph58-4vrj-w6hr\nhttps://github.com/twbs/bootstrap\nhttps://github.com/twbs/bootstrap/issues/20631\nhttps://github.com/advisories/GHSA-4p24-vmcr-4gqj\nhttps://github.com/advisories/GHSA-9v3m-8fp8-mj99\nhttps://nvd.nist.gov/vuln/detail/CVE-2018-20676\n"
+						}
+					],
+					"count": "1",
+					"systemic": false,
+					"solution": "<p>Upgrade to the latest version of the affected library.</p>",
+					"otherinfo": "<p>The identified library bootstrap, version 3.3.5 is vulnerable.</p><p>CVE-2018-14041</p><p>CVE-2019-8331</p><p>CVE-2018-14040</p><p>CVE-2018-20677</p><p>CVE-2018-20676</p><p>CVE-2018-14042</p><p>CVE-2016-10735</p><p>CVE-2024-6485</p><p>https://nvd.nist.gov/vuln/detail/CVE-2024-6485</p><p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://www.herodevs.com/vulnerability-directory/cve-2024-6485</p><p>https://github.com/advisories/GHSA-pj7m-g53m-7638</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-vxmc-5x29-h64v</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://github.com/advisories/GHSA-9v3m-8fp8-mj99</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
+					"reference": "<p>https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/</p>",
+					"cweid": "1395",
+					"wascid": "-1",
+					"sourceid": "9123"
+				},
+				{
+					"pluginid": "10017",
+					"alertRef": "10017",
+					"alert": "Cross-Domain JavaScript Source File Inclusion",
+					"name": "Cross-Domain JavaScript Source File Inclusion",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
+					"instances":[ 
+						{
+							"id": "6",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "https://emotionalbrands123.activehosted.com/f/embed.php?id=15",
+							"attack": "",
+							"evidence": "<script src=\"https://emotionalbrands123.activehosted.com/f/embed.php?id=15\" type=\"text/javascript\" charset=\"utf-8\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "7",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "https://emotionalbrands123.activehosted.com/f/embed.php?id=45",
+							"attack": "",
+							"evidence": "<script src=\"https://emotionalbrands123.activehosted.com/f/embed.php?id=45\" type=\"text/javascript\" charset=\"utf-8\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "5",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "https://www.googletagmanager.com/gtag/js?id=UA-53257393-1",
+							"attack": "",
+							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-53257393-1\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "62",
+							"uri": "https://ottiu.com/product-category/beds/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/beds\/",
+							"method": "GET",
+							"param": "https://emotionalbrands123.activehosted.com/f/embed.php?id=15",
+							"attack": "",
+							"evidence": "<script src=\"https://emotionalbrands123.activehosted.com/f/embed.php?id=15\" type=\"text/javascript\" charset=\"utf-8\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "61",
+							"uri": "https://ottiu.com/product-category/beds/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/beds\/",
+							"method": "GET",
+							"param": "https://www.googletagmanager.com/gtag/js?id=UA-53257393-1",
+							"attack": "",
+							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-53257393-1\"></script>",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "829",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "90004",
+					"alertRef": "90004-2",
+					"alert": "Cross-Origin-Embedder-Policy Header Missing or Invalid",
+					"name": "Cross-Origin-Embedder-Policy Header Missing or Invalid",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>Cross-Origin-Embedder-Policy header is a response header that prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using CORP or CORS).</p>",
+					"instances":[ 
+						{
+							"id": "22",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "Cross-Origin-Embedder-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"systemic": true,
+					"solution": "<p>Ensure that the application/web server sets the Cross-Origin-Embedder-Policy header appropriately, and that it sets the Cross-Origin-Embedder-Policy header to 'require-corp' for documents.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that supports the Cross-Origin-Embedder-Policy header (https://caniuse.com/mdn-http_headers_cross-origin-embedder-policy).</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy</p>",
+					"cweid": "693",
+					"wascid": "14",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "90004",
+					"alertRef": "90004-3",
+					"alert": "Cross-Origin-Opener-Policy Header Missing or Invalid",
+					"name": "Cross-Origin-Opener-Policy Header Missing or Invalid",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>Cross-Origin-Opener-Policy header is a response header that allows a site to control if others included documents share the same browsing context. Sharing the same browsing context with untrusted documents might lead to data leak.</p>",
+					"instances":[ 
+						{
+							"id": "23",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "Cross-Origin-Opener-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"systemic": true,
+					"solution": "<p>Ensure that the application/web server sets the Cross-Origin-Opener-Policy header appropriately, and that it sets the Cross-Origin-Opener-Policy header to 'same-origin' for documents.</p><p>'same-origin-allow-popups' is considered as less secured and should be avoided.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that supports the Cross-Origin-Opener-Policy header (https://caniuse.com/mdn-http_headers_cross-origin-opener-policy).</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy</p>",
+					"cweid": "693",
+					"wascid": "14",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "90004",
+					"alertRef": "90004-1",
+					"alert": "Cross-Origin-Resource-Policy Header Missing or Invalid",
+					"name": "Cross-Origin-Resource-Policy Header Missing or Invalid",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>Cross-Origin-Resource-Policy header is an opt-in header designed to counter side-channels attacks like Spectre. Resource should be specifically set as shareable amongst different origins.</p>",
+					"instances":[ 
+						{
+							"id": "21",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "28",
+							"uri": "https://ottiu.com/category-sitemap.xml",
+							"nodeName": "https:\/\/ottiu.com\/category-sitemap.xml",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "29",
+							"uri": "https://ottiu.com/product_cat-sitemap.xml",
+							"nodeName": "https:\/\/ottiu.com\/product_cat-sitemap.xml",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "2",
+							"uri": "https://ottiu.com/robots.txt",
+							"nodeName": "https:\/\/ottiu.com\/robots.txt",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "25",
+							"uri": "https://ottiu.com/sitemap_index.xml",
+							"nodeName": "https:\/\/ottiu.com\/sitemap_index.xml",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Ensure that the application/web server sets the Cross-Origin-Resource-Policy header appropriately, and that it sets the Cross-Origin-Resource-Policy header to 'same-origin' for all web pages.</p><p>'same-site' is considered as less secured and should be avoided.</p><p>If resources must be shared, set the header to 'cross-origin'.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that supports the Cross-Origin-Resource-Policy header (https://caniuse.com/mdn-http_headers_cross-origin-resource-policy).</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy</p>",
+					"cweid": "693",
+					"wascid": "14",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10110",
+					"alertRef": "10110",
+					"alert": "Dangerous JS Functions",
+					"name": "Dangerous JS Functions",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
+					"instances":[ 
+						{
+							"id": "137",
+							"uri": "https://ottiu.com/wp-content/plugins/gravityforms/js/gravityforms.min.js",
+							"nodeName": "https:\/\/ottiu.com\/wp-content\/plugins\/gravityforms\/js\/gravityforms.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval(",
+							"otherinfo": ""
+						},
+						{
+							"id": "135",
+							"uri": "https://ottiu.com/wp-content/plugins/gravityforms/js/jquery.json.min.js",
+							"nodeName": "https:\/\/ottiu.com\/wp-content\/plugins\/gravityforms\/js\/jquery.json.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval(",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"systemic": false,
+					"solution": "<p>See the references for security advice on the use of these functions.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://v17.angular.io/guide/security</p>",
+					"cweid": "749",
+					"wascid": "-1",
+					"sourceid": "9014"
+				},
+				{
+					"pluginid": "10063",
+					"alertRef": "10063-1",
+					"alert": "Permissions Policy Header Not Set",
+					"name": "Permissions Policy Header Not Set",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
+					"instances":[ 
+						{
+							"id": "20",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "126",
+							"uri": "https://ottiu.com/category/lifestyle-entertaining/",
+							"nodeName": "https:\/\/ottiu.com\/category\/lifestyle-entertaining\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "102",
+							"uri": "https://ottiu.com/product-category/beds/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/beds\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "116",
+							"uri": "https://ottiu.com/product-category/bench/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/bench\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "49",
+							"uri": "https://ottiu.com/wp-content/uploads/Landing-Page-St.Valentines.mp4",
+							"nodeName": "https:\/\/ottiu.com\/wp-content\/uploads\/Landing-Page-St.Valentines.mp4",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10096",
+					"alertRef": "10096",
+					"alert": "Timestamp Disclosure - Unix",
+					"name": "Timestamp Disclosure - Unix",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A timestamp was disclosed by the application/web server. - Unix</p>",
+					"instances":[ 
+						{
+							"id": "18",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1758697966",
+							"otherinfo": "1758697966, which evaluates to: 2025-09-24 07:12:46."
+						},
+						{
+							"id": "107",
+							"uri": "https://ottiu.com/category/lifestyle-entertaining/",
+							"nodeName": "https:\/\/ottiu.com\/category\/lifestyle-entertaining\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1758697966",
+							"otherinfo": "1758697966, which evaluates to: 2025-09-24 07:12:46."
+						},
+						{
+							"id": "36",
+							"uri": "https://ottiu.com/post-sitemap.xml",
+							"nodeName": "https:\/\/ottiu.com\/post-sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1503003716",
+							"otherinfo": "1503003716, which evaluates to: 2017-08-17 21:01:56."
+						},
+						{
+							"id": "99",
+							"uri": "https://ottiu.com/product-category/beds/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/beds\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1758697966",
+							"otherinfo": "1758697966, which evaluates to: 2025-09-24 07:12:46."
+						},
+						{
+							"id": "103",
+							"uri": "https://ottiu.com/product-category/bench/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/bench\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1758697966",
+							"otherinfo": "1758697966, which evaluates to: 2025-09-24 07:12:46."
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
+					"otherinfo": "<p>1758697966, which evaluates to: 2025-09-24 07:12:46.</p>",
+					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
+					"cweid": "497",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "90011",
+					"alertRef": "90011-4",
+					"alert": "Charset Mismatch",
+					"name": "Charset Mismatch",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>This check identifies responses where the HTTP Content-Type header declares a charset different from the charset defined by the body of the HTML or XML. When there's a charset mismatch between the HTTP header and content body Web browsers can be forced into an undesirable content-sniffing mode to determine the content's correct character set.</p><p></p><p>An attacker could manipulate content on the page to be interpreted in an encoding of their choice. For example, if an attacker can control content at the beginning of the page, they could inject script using UTF-7 encoded text and manipulate some browsers into interpreting that text.</p>",
+					"instances":[ 
+						{
+							"id": "136",
+							"uri": "https://ottiu.com/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fottiu.com%2F",
+							"nodeName": "https:\/\/ottiu.com\/wp-json\/oembed\/1.0\/embed (format,url)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
+						}
+					],
+					"count": "1",
+					"systemic": true,
+					"solution": "<p>Force UTF-8 for all text content in both the HTTP header and meta tags in HTML or encoding declarations in XML.</p>",
+					"otherinfo": "<p>There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match.</p>",
+					"reference": "<p>https://code.google.com/archive/p/browsersec/wikis/Part2.wiki#Character_set_handling_and_detection</p>",
+					"cweid": "436",
+					"wascid": "15",
+					"sourceid": "9091"
+				},
+				{
+					"pluginid": "10027",
+					"alertRef": "10027",
+					"alert": "Information Disclosure - Suspicious Comments",
+					"name": "Information Disclosure - Suspicious Comments",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response appears to contain suspicious comments which may help an attacker.</p>",
+					"instances":[ 
+						{
+							"id": "11",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "lliseconds to fix a bug in chrome */",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "104",
+							"uri": "https://ottiu.com/category/lifestyle-entertaining/",
+							"nodeName": "https:\/\/ottiu.com\/category\/lifestyle-entertaining\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "lliseconds to fix a bug in chrome */",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "127",
+							"uri": "https://ottiu.com/guitar-hotel/",
+							"nodeName": "https:\/\/ottiu.com\/guitar-hotel\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "lliseconds to fix a bug in chrome */",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "113",
+							"uri": "https://ottiu.com/product-category/bar-chair/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/bar-chair\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "lliseconds to fix a bug in chrome */",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "92",
+							"uri": "https://ottiu.com/product-category/beds/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/beds\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "lliseconds to fix a bug in chrome */",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "100",
+							"uri": "https://ottiu.com/product-category/bench/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/bench\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "lliseconds to fix a bug in chrome */",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "119",
+							"uri": "https://ottiu.com/product-category/dining-chair/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/dining-chair\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "lliseconds to fix a bug in chrome */",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "109",
+							"uri": "https://ottiu.com/product-category/sofa/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/sofa\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "lliseconds to fix a bug in chrome */",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "106",
+							"uri": "https://ottiu.com/product-category/stools/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/stools\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "lliseconds to fix a bug in chrome */",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "115",
+							"uri": "https://ottiu.com/products/armchair/simone-modular-armchair/",
+							"nodeName": "https:\/\/ottiu.com\/products\/armchair\/simone-modular-armchair\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "lliseconds to fix a bug in chrome */",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"id": "110",
+							"uri": "https://ottiu.com/products/sofa/simone-modular-sofa/",
+							"nodeName": "https:\/\/ottiu.com\/products\/sofa\/simone-modular-sofa\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "lliseconds to fix a bug in chrome */",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet."
+						}
+					],
+					"count": "11",
+					"systemic": false,
+					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bBUG\\b and was detected in likely comment: \"/* delay the scroll by 50 milliseconds to fix a bug in chrome */\", see evidence field for the suspicious comment/snippet.</p>",
+					"reference": "",
+					"cweid": "615",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10109",
+					"alertRef": "10109",
+					"alert": "Modern Web Application",
+					"name": "Modern Web Application",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
+					"instances":[ 
+						{
+							"id": "12",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"elementor-toggle-title\" tabindex=\"0\">Do you need help?</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"id": "105",
+							"uri": "https://ottiu.com/category/lifestyle-entertaining/",
+							"nodeName": "https:\/\/ottiu.com\/category\/lifestyle-entertaining\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"elementor-toggle-title\" tabindex=\"0\">Do you need help?</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"id": "93",
+							"uri": "https://ottiu.com/product-category/beds/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/beds\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\" class=\"dropdown-link\">\n                        <span class=\"silver set-orderby\">Sort by newness</span>\n                    </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"id": "101",
+							"uri": "https://ottiu.com/product-category/bench/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/bench\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\" class=\"dropdown-link\">\n                        <span class=\"silver set-orderby\">Sort by newness</span>\n                    </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"id": "108",
+							"uri": "https://ottiu.com/product-category/stools/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/stools\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\" class=\"dropdown-link\">\n                        <span class=\"silver set-orderby\">Sort by newness</span>\n                    </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>This is an informational alert and so no changes are required.</p>",
+					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
+					"reference": "",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049-1",
+					"alert": "Non-Storable Content",
+					"name": "Non-Storable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
+					"instances":[ 
+						{
+							"id": "26",
+							"uri": "https://ottiu.com/category-sitemap.xml",
+							"nodeName": "https:\/\/ottiu.com\/category-sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "32",
+							"uri": "https://ottiu.com/local-sitemap.xml",
+							"nodeName": "https:\/\/ottiu.com\/local-sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "27",
+							"uri": "https://ottiu.com/product_cat-sitemap.xml",
+							"nodeName": "https:\/\/ottiu.com\/product_cat-sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "24",
+							"uri": "https://ottiu.com/sitemap_index.xml",
+							"nodeName": "https:\/\/ottiu.com\/sitemap_index.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "30",
+							"uri": "https://ottiu.com/video-sitemap.xml",
+							"nodeName": "https:\/\/ottiu.com\/video-sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).</p>",
+					"otherinfo": "",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "26"
+				},
+				{
+					"pluginid": "10015",
+					"alertRef": "10015",
+					"alert": "Re-examine Cache-control Directives",
+					"name": "Re-examine Cache-control Directives",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.</p>",
+					"instances":[ 
+						{
+							"id": "3",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "68",
+							"uri": "https://ottiu.com/category/lifestyle-entertaining/",
+							"nodeName": "https:\/\/ottiu.com\/category\/lifestyle-entertaining\/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "59",
+							"uri": "https://ottiu.com/product-category/beds/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/beds\/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "65",
+							"uri": "https://ottiu.com/product-category/sofa/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/sofa\/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "0",
+							"uri": "https://ottiu.com/robots.txt",
+							"nodeName": "https:\/\/ottiu.com\/robots.txt",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
+					"otherinfo": "",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
+					"cweid": "525",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049-3",
+					"alert": "Storable and Cacheable Content",
+					"name": "Storable and Cacheable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
+					"instances":[ 
+						{
+							"id": "19",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"id": "35",
+							"uri": "https://ottiu.com/author/laura/",
+							"nodeName": "https:\/\/ottiu.com\/author\/laura\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"id": "34",
+							"uri": "https://ottiu.com/product-category/armchair/",
+							"nodeName": "https:\/\/ottiu.com\/product-category\/armchair\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"id": "1",
+							"uri": "https://ottiu.com/robots.txt",
+							"nodeName": "https:\/\/ottiu.com\/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"id": "10",
+							"uri": "https://ottiu.com/sitemap.xml",
+							"nodeName": "https:\/\/ottiu.com\/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information. If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request.</p>",
+					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10031",
+					"alertRef": "10031",
+					"alert": "User Controllable HTML Element Attribute (Potential XSS)",
+					"name": "User Controllable HTML Element Attribute (Potential XSS)",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
+					"instances":[ 
+						{
+							"id": "140",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "gform_source_page_number_1",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [meta] tag [content] attribute\n\nThe user input found was:\ngform_source_page_number_1=1\n\nThe user-controlled value was:\nwidth=device-width, initial-scale=1"
+						},
+						{
+							"id": "481",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "gform_style_settings",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ngform_style_settings=[]\n\nThe user-controlled value was:\n[]"
+						},
+						{
+							"id": "479",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "gform_submission_method",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ngform_submission_method=postback\n\nThe user-controlled value was:\npostback"
+						},
+						{
+							"id": "445",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "gform_theme",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [div] tag [data-form-theme] attribute\n\nThe user input found was:\ngform_theme=gravity-theme\n\nThe user-controlled value was:\ngravity-theme"
+						},
+						{
+							"id": "446",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_1.3",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ninput_1.3=ZAP\n\nThe user-controlled value was:\nzap"
+						},
+						{
+							"id": "447",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_1.6",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ninput_1.6=ZAP\n\nThe user-controlled value was:\nzap"
+						},
+						{
+							"id": "448",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_10",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ninput_10=ZAP\n\nThe user-controlled value was:\nzap"
+						},
+						{
+							"id": "460",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_11",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [option] tag [value] attribute\n\nThe user input found was:\ninput_11=Agent\n\nThe user-controlled value was:\nagent"
+						},
+						{
+							"id": "465",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_13",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [option] tag [value] attribute\n\nThe user input found was:\ninput_13=Albania\n\nThe user-controlled value was:\nalbania"
+						},
+						{
+							"id": "208",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_15",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [body] tag [class] attribute\n\nThe user input found was:\ninput_15=Home\n\nThe user-controlled value was:\nhome wp-singular page-template page-template-elementor_header_footer page page-id-3099 custom-background wp-theme-decofurniture wp-child-theme-decofurniture-child theme-decofurniture woocommerce-no-js decofurniture page-content-box theme-ver-1.1 elementor-default elementor-template-full-width elementor-kit-14 elementor-page elementor-page-3099"
+						},
+						{
+							"id": "141",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_16",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [link] tag [href] attribute\n\nThe user input found was:\ninput_16=https://ottiu.com/\n\nThe user-controlled value was:\nhttps://ottiu.com/"
+						},
+						{
+							"id": "320",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_17",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [div] tag [data-elementor-id] attribute\n\nThe user input found was:\ninput_17=3099\n\nThe user-controlled value was:\n3099"
+						},
+						{
+							"id": "209",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_18",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [body] tag [class] attribute\n\nThe user input found was:\ninput_18=Home\n\nThe user-controlled value was:\nhome wp-singular page-template page-template-elementor_header_footer page page-id-3099 custom-background wp-theme-decofurniture wp-child-theme-decofurniture-child theme-decofurniture woocommerce-no-js decofurniture page-content-box theme-ver-1.1 elementor-default elementor-template-full-width elementor-kit-14 elementor-page elementor-page-3099"
+						},
+						{
+							"id": "449",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_19",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ninput_19=ZAP\n\nThe user-controlled value was:\nzap"
+						},
+						{
+							"id": "458",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_2",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ninput_2=foo-bar@example.com\n\nThe user-controlled value was:\nfoo-bar@example.com"
+						},
+						{
+							"id": "466",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_4.1",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ninput_4.1=Product Sheet\n\nThe user-controlled value was:\nproduct sheet"
+						},
+						{
+							"id": "467",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_4.2",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ninput_4.2=Product Info\n\nThe user-controlled value was:\nproduct info"
+						},
+						{
+							"id": "468",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_4.3",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ninput_4.3=Catalogue\n\nThe user-controlled value was:\ncatalogue"
+						},
+						{
+							"id": "469",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_4.4",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ninput_4.4=Price List\n\nThe user-controlled value was:\nprice list"
+						},
+						{
+							"id": "470",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_4.5",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ninput_4.5=Stock List\n\nThe user-controlled value was:\nstock list"
+						},
+						{
+							"id": "459",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "input_9",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\ninput_9=9999999999\n\nThe user-controlled value was:\n9999999999"
+						},
+						{
+							"id": "482",
+							"uri": "https://ottiu.com/",
+							"nodeName": "https:\/\/ottiu.com\/ ()(gform_field_values,gform_source_page_number_1,gform_style_settings,gform_submission_method,gform_submit,gform_target_page_number_1,gform_theme,gform_unique_id,input_1.3,input_1.6,input_10,input_11,input_13,input_15,input_16,input_17,input_18,input_19,input_2,input_4.1,input_4.2,input_4.3,input_4.4,input_4.5,input_9,is_submit_1,state_1)",
+							"method": "POST",
+							"param": "state_1",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://ottiu.com/\n\nappears to include user input in:\na(n) [input] tag [value] attribute\n\nThe user input found was:\nstate_1=WyJ7XCIxMVwiOltcIjhhZmRiNjY5YmNkNTI5ODUxMDBmZTk3YTliZWFjM2U2XCIsXCIwODBiNzFhNTcxZWEyNWIwNzU1YmNkZjU2NmFiYWVmYVwiLFwiYmFjNzU3ZGMwMWExZThhMGM4YzlhMGQyMDBjNWRiOGVcIixcImY1ZGYyMjBjOTQyYjY4OGI0ZDIxMTQwODcxN2FjYTc0XCIsXCI0YmZmODY2NzBhYzFmYTYwMWMwYzk5NjYxZDI1YzQwMVwiLFwiODU1ODg0ZmU5M2JlYjI2OWQwMDUzZmUzNjdkMWM2YzlcIixcIjMwMmIwMTYzY2VlNjhjY2YwYzMwZmUwNTBhZTZjYmIyXCIsXCIzMTY2MTc2MjI5NGQ2OWQyODJhYWQwMmEyNjI3M2ZiM1wiLFwiNmNiMmM2MDliM2M5ZjA0ZGVjOTI1NGYzY2RhZTI3MDBcIl0sXCIxM1wiOltcIjA0NjZlY2U1YzEyOTNjN2U0OWRlNTRmNWQxZjU3MTAxXCIsXCI5NmFmYTNhMzAyNmIwOTk0NjI5YTdjMTZmMTBkY2I5ZVwiLFwiYzhjNjQ3MGY0ZTNkZjBiZDFiZjU4NTNjNTUyYjg4MzJcIixcIjVkMDlhYmJkMTcxMWI1OGY5MzVlNzVjZjhkMzU0MzU1XCIsXCI1NzFiZjljNDRlZDYzYzc5YWNjZDYyNGIyMWUxM2E2ZFwiLFwiOGY1Njk3NDQ1ZjQwMGMwMDEzY2FkYmQzMzVmMDYxOWVcIixcIjY5OTU4MDUwYmY5OGYwZmJhZDMzM2U4ZjY1NjA0YWFhXCIsXCIxZDhlZjhmY2Y5MDNmNTY4MTUwNWRhMTE0OGJmNDQyZVwiLFwiZGVhY2VkZGI0ZjVjODMxMTljNzJkYjJmZTk3MmI1ODRcIixcIjI3YzU0ZGZlODNlNjg4YjIwOWIzNjM5YTU0YzRjZTE1XCIsXCJlNWUzNDJlOWM2ODdiODFlYzBlMGU5N2M0N2EwNGE0OVwiLFwiYTA4ZmE4MmM4MTQwOTlmYjZmODU3ZTQ3NmRkMTFlMTlcIixcIjYzY2UwZTU1ZmQzNGE0ODRjMTVlZDhmOTk0ZDZlMGU2XCIsXCI3MGQ4MGJlYWNkY2ZiOGJiZGJkODhkM2E0YTA1ZmI1MlwiLFwiMDUyMTFiYWQ3NDc2YmQwZTZjODFhNjJjODViZDVjZTBcIixcImQzMTA2YWFkNWVmZDgyNmM0OTgyN2ZjYjY1YmQ4MDdiXCIsXCJmMDRhZDRlNGRjYjZkNzgzMTczNjMzOGExYTQzZmZjNVwiLFwiYjEyYmU0ZDljOThiMWFiNTVkYWQ4NmIxNjk5MjkyZjJcIixcImRjZTY2ZWRhYjA4ZTQyNjhkZWE1NWQyYjFhOGIxMmMyXCIsXCI3MTQzMmEzZjUwMzVlMWVjNjFkYmRiOTc2NWM3NWI5ZFwiLFwiYjc1NjViN2VjMjZjZTYxZjBkYjVjZmVjYzZiOWMxY2FcIixcImE0ZjcxNWNlZDlmZjU3M2Q3ZDYyZjJhYjY3OWMwYWYwXCIsXCIyZjAzODBmMmQ1NmVhOGE4OWNkY2M4YjA5MDY1NWVjMlwiLFwiYmY1MTA0YjJjMTA4YjY3ODMwNTA3ZTZlZmIwN2U3NThcIixcIjc2ZGYzZWNkZDliODI4NjkwZDVlM2ZmMmM5NTY1OGE1XCIsXCI1NzQ0MGIyOWJmYTQzMDc4ZGNlODIxNThhNDI1YzE4NFwiLFwiYzI3MmMyYTRhNDM3MTg5MDlhMTc1M2VlNDFiYmJhMTRcIixcIjRjMzE2NTVlOTc5NDhkNDQyZTM1MzQzNzU5Yzg5NGRiXCIsXCJlMzNlMTY3MWMxNWI0ZTI3Mzg5ZDAyZjE3YTg1NzU2YVwiLFwiNGZlYjk4NmI4ZmMyYzM0NzBjZTViMjNkOGVmYTdjMGZcIixcIjAwM2IzMzY3NzVlODE0NzI5MmVlODA3NDBiYTRmMjY4XCIsXCJkMzkxNTI1MDMzMTg3ODhlZWIzMzY5MTdlZjM1Y2E4ZVwiLFwiMzU5ZThjZWMyZjZlOTJhY2E4MGRhOGJiZDVhM2UwMDVcIixcIjI3NjVhYTdiYThlYmJlZTk2NWI3YWMxZjdlYjJhOTczXCIsXCI1OGUwNjY2MjJlN2IyYjhlOTdiZjY2MDQ5NzZmOWQwMVwiLFwiMTM5NWJiYTg3ZmVlYWViYjhkZmMwZjAwZjM1YWVhMzdcIixcImJkOTRjNGY0Zjg4M2UyODExNDc1ZmQyNTM0N2RkZmFkXCIsXCI0NzBlM2MwMjUxMWQ1MDBjZjdhMzY5ZGJlYTIxOTM1OVwiLFwiMWRlMDA3MmFmMDNiMTM2MDkwZmI1ZmJjZjc3N2VjMmNcIixcIjAxYjFkYTEzOGQwNzUyMDFjNzNkYzM0OWZjNGZlZjA4XCIsXCI0MjVjMDdjM2Q5M2EyYmZjYmRiNGNmYzU1NmYwZTFmM1wiLFwiYTdiYTcxYzViN2UyODE2ZGY2M2NmODQ4Y2YyMTM0N2ZcIixcImY5NzM0MmJlZDM0MzcyOGZlNGY5Mzc1Y2FhOGMwODdlXCIsXCI4NzZhOGE2ZTViM2VjMGYzMzQ1YzdkODEzMzAzYzYyOVwiLFwiOWIyYWQ2ZDdjMzgyYmIzNTU0ZGIwZGY2OTg1ODk1MzVcIixcIjNjMWQ2NWE3MmFhNTUwOWQwZjU0YzhjZjY1NzdmMDg0XCIsXCI1MDI0NjkyMDIwMmRiMTk0MTYxYWY3NDVjYmI0YjcxN1wiLFwiZjgxNTEzNGM5YjZjMWIwM2E5MWFhMDVmNzUyMjVhMzdcIixcIjNjYTM5MTU0MzcwOWI2YWNlNDk5OWRlNzZkMjUzYTcxXCIsXCI4MzQ4ZDA5YmJlNTZjMTNiNGJiNDJiYzQ3OGMxNmQ3NlwiLFwiY2Q2Y2VkMDQ5YmUwZThiYzhjZDE0YWE1ZDM1Mjc1YWJcIixcIjkwMDIxODYzOTI2MzU0ZDM2MWE0MzM1YTY4YzgwMTg4XCIsXCJlMWNjYTE3ZDIyMjM0MTFhZjFiNTczMTI2ZjE2NDFlMlwiLFwiNzhlYzc1OTI1NjE3NWE4N2I1MjNkZDdiMjAzNTJlMDFcIixcIjQ3YjRhNDZjOGNkOGFhYmZlNjQ4Mzc2MmFiYWNhOTc5XCIsXCJmMDg2NzZjYzllNzI1NjllYjgyOTA1MmM3Y2MxYmQ3NFwiLFwiMGM3NjZlYTk2OTM2NWQ2Zjg0YzNkZmY3ODU2OGM3MjdcIixcIjgzZjBjNTMwNmU1OGUwZmMzZGJiNmI1OTljZWVlZTM1XCIsXCIxMWI0Y2Y0YjJlNWI3ZjZkNWEwY2MyYTJjZjE1N2JjYlwiLFwiZTgxYTczMGY5MTY5N2NiZTk3N2EzYzIxODhjNjEyZTlcIixcImFiMWY2ZDZmODk1YTk4MzlkODg2NGZiMTM0OTEyZWI0XCIsXCI5ZGJjMjE1ZjRmMmU1MzAyMzEwOTJmNzQ5MjljZjBlOFwiLFwiNDBhYmI0MmQ0ZDRhYWMxZWQxODUyMWIzMWUzMzBmMjJcIixcImVhZjUyZjU2OTcwMzViODU1YWZiMjg4NzA0YWIzZmE0XCIsXCI3NWY0NjBjYzhmODY5NzYxYzA2MTQ5ZTVkY2QyMjcxN1wiLFwiNDMxMzVjNzQxZTUyZmRjZDlmMWY1NTUxOTUyMDgxOGZcIixcIjI2ZjNkMmY3ZjlmZGZlOTc4NzdmYWZkNDM0NmM5NWU3XCIsXCIzMDM0Mzk3NjgyY2Y1MTkzN2UzNWU1NGM3M2FhZjMyY1wiLFwiMjgyMjA2ODMxMjNmNzAwZGU4YWYxYWQzZDE4MmY2YzlcIixcImNhZmJkZTJmOTUxZmExNDMxZGQ5MzQyYjVhMjdjMjJiXCIsXCIwZGMyZjVhNDBiOTVlOTkyYzdmOTU5OTFjNWE5YWQ5Y1wiLFwiMDhlYjIzZjRhNzIyZDA1ODM3NzZiNDY0ODc0MzQ1MmZcIixcIjc0YTkwNTVhY2IyMmRiMmE5NTQ5YWE4NjdlYmJmNzE0XCIsXCJmZGNhYmIyNDRjMzQ5MzZlNjQ2NWRlMmFmMDIzYjgwYlwiLFwiZDNiOTNmMDdjMDg1NTExNzk4Y2RmNjQ2NTUxMjAyYzBcIixcIjE0M2RmYmQxNTJkNWZhODFkNDIzZTExZjlhZjk3ZDRhXCIsXCI0NzA0Y2JjMzIwOTlmYjEyYWUwMDIzODY0M2I5NTA4Y1wiLFwiYWRhMzZjYmRiYzQyNDY1MDUwZjhhMmIwNDQ4Zjk2YTRcIixcIjI2MjQwYjU2YjI2NWIyNDQ3MTU5Y2U0NzliMDM1MmI4XCIsXCI3ZDRjZjcxYWMxY2JmZDQxNTMyMzE3MWEzYzFmZGE0MVwiLFwiNmY3NjZmNDU1MzYwODAyODYyZWFlMTk4NDc4MTE3YmNcIixcImRhZDQ0NDU4NGZmYTVmNzBhZWE0OWFhZTcyNGY0MTJkXCIsXCJmYWVkZDFlMDM5ZWVjNGI2ZGRjNWIwYzc1MmM0MWU2NlwiLFwiYzkyZjE5ZjU2NWU2MmM5NDc5ZDQ1NzBlZTg4YTJiZDFcIixcIjBiMzlkNTdjODRjMjBjOGIzNDRlNjI1NTQyM2M1YTY3XCIsXCJhYmZjYzI3OWVlNmJjNjRlZDk1NWM1MzljMzkzMTA3NFwiLFwiNGNkMzk5NjRjMjI3YjYxZDdkMmQyNmM1NzVjOGVmZGRcIixcIjVhNzRjNzM4MzA1NjIzZGViZmYyZDMwNmI2YTZiMDg0XCIsXCJlODk3ZTNjMWJjMTM5NzI5ODM2MTE1MTA1YzUzMzlhN1wiLFwiOGIyODg2ZGRlNDZmNjBkMGViYzczODVkYjA4NGJmYTFcIixcIjc4YTdlYjIzMmZlNjJkMDI3MDg5MDFiODVlNTVhZGM5XCIsXCJkNGVkZmNiMjQ5NmU1YjhmMWM1YWU1Mjg5OGNkNjhjOFwiLFwiZmQzYTQxYTcyOGZlZTg2MGY0MDg1NDc5ZDAyZWJjNTZcIixcImY2YmE4YjI2OWQxYzg5ZTc0ODM2OWVhZGI4YmZkYWQzXCIsXCJmOGRjMGVlMWM0OTg2YmE4MTU4NDYyZmE1MjRlZmY3Y1wiLFwiZGMzMzJkMmEzYzExZjVkYzE2NzBhOTgzMjBjYzViZTJcIixcImYyZjNiNTFlNzBjM2ZiYmQwYTI3MTM0MWFjODY2MjlhXCIsXCJmZmNiZTNlZTk3ZDdiYWM5NjU3MDNkZjBjZjZmMTEzZlwiLFwiY2M3ZTNmYTczODU5MTU0NGY2MmJiNzYwNDI3Y2U3ZGRcIixcIjIxZTQzM2UyYzRjMzg1NWYxMTZlOWMxMzY2ODYyMTAwXCIsXCIwMWMzZjUxYjQ4Y2UyZDU5MjAxMWUyZjZkZTRhZDEwNlwiLFwiOWE2Zjk1ZjIyNTFmZDE0ZjkyYWVkYWZhM2JlNGI2YmNcIixcIjljNDJjODJmYzJiZTFhMGNhNjlhMTdhYWMxYjg3MWYxXCIsXCI4NmM5NzA2YTc0MjQ3OWNhZjQ2NjEwNjIzNWQwZDQwN1wiLFwiZWM1ZDczZWVkMjE2MzFiZjVjYzcxZTcyYzRhMzU4NjRcIixcIjg1MjRkMzM2OWJkNDA4M2VmOGM5MWNiOTgxYzEwMzdiXCIsXCIzOTdiMmJjM2JjMWNmYzdiN2U3YWY2NjI0MmUzYWZlOVwiLFwiOWU0YzNlYWViNzE4ODIzZmUxODIyZjgxYjg4ZjBlNzVcIixcIjliYzhiOWQwNzEzNmQ2M2EwMDkyMzQ1NTM4ZWM2MjIzXCIsXCJkNGI5ZmI1NWQ2OWYzOWYzYjhiOGY2YmY2MzM1NjkyN1wiLFwiMTUzYzRiMWE3ZTQ3NjUwMjg5MzNkZGFmYzVmMTZhYzFcIixcIjI4ODIzYTM2OWEyNDE3NTg3ZGIzMzFmOWI5MzNlNTFkXCIsXCJhYjM3NGVjNGVmMGVmMTcxMjc0N2VlOTgxNWQ3YTljNVwiLFwiMjM5NWQxMGFkZDE5NzMxNGU3ZDQ5YmNmZjJiZjFiZmNcIixcImI5NDA4MjVkNDhmZDNlZThkOTIwNjFlNGIyOTRiNzNiXCIsXCI0MTYzMmEyMzZiMmQ3MTM0OTNkZWM4ODZlZjJhMGM1OVwiLFwiMmVlN2VhNzI4NDRmY2U3Yjk3YjAyODk3ZjgxMjhkZTJcIixcIjQwMjAwN2VmNjU4MDBiN2Y3YTIyMzRlZjRiN2ExNTJlXCIsXCJkMDg1ZjkxN2QwZDAzODJlYzA5ZTY2ODY5ZTgyZDkwYVwiLFwiNTJmM2ZkZGFkMzM5YTkwMzRlMDIxMDczOWU0NmVmN2NcIixcImY2ZGRhOTU0YjRlOGJiZDVkOTE4YWZmNjg3NjBhYjkzXCIsXCI0Yjg2NjIyODI2Yzk5YTBmM2NhMWM1NTFjYTM5NmZlZVwiLFwiMTIyZTEwNDZlMTQyZWFmNDdkYTVmNTJlMTk2ODMzYzZcIixcIjYxNTU0NWY1MDNiNmVlOGJhMmYwNjg1ZDBjYTEwMzc2XCIsXCI5ZGNjMDEyYThhOWRiYjkzYWNiZDczMzBlMWI0MmM5ZVwiLFwiODhhZjk5NDdjZWQxNjg1ZWIyYjg2Y2RhNGMzMzc1NDdcIixcIjlhM2Q4YThhYzJkMWYyYmYyODRkMzQwZGRkZjhlMDk5XCIsXCJmOTY2MjZiMzA5ODIyYTI3NWY5Y2ZiNmIyMDU0ZWJlMVwiLFwiYjE1ZmQyNTliNzRhYWFjYzdlOGIwODM1ZGY1ZjJhZDNcIixcIjI1MWQ0ZTAzMmZmNTY1MjZmZmJlNDQ2MjkyY2UwNGUyXCIsXCI4NTM0ZjIxMGRlZDkzNWRhMTBhYzQ4ODEyODAzOTUwOFwiLFwiODAwMWRkZWNhNWQ2ZjhhZTIzYmJiNTc4ZTE1ZTNkZDFcIixcImEyYzA2YzllMzA4NjY4YjJiYWY2MDIzMTg3MWQyYTEyXCIsXCJkNzFkMGU1ZjBlYjQzNzBiNTljNjVkNGY4MjUyNDA5ZFwiLFwiZDdhOWNmZWI4NDk4ZmIxM2RiMzc1ZjhiYzU5NTNhZDRcIixcIjVjMzFjZWY1Y2MyZDNjZTQzMzE5YjMxODY5NTc5ZDNmXCIsXCJkN2VkNDZiZTM1YjExNzAyNGZjNjA2NWJiOTJkYzdlMVwiLFwiMDJiMDlkNDFiNWY3YzBlNWQ1MGY3MmZmMzZmYTE4NjZcIixcIjFlOGU1MWE0YmU3Y2FhYTM1MjUxODhjZDE5NDlmZGFjXCIsXCIxMWNhMTAzYmFlYWU4OWVjMmU1YTkzY2NmZTFhMjg5MVwiLFwiNWRiMWY1ZDk0OGI4NWNlODEwZGYyOTA2OGI5N2RjYzhcIixcIjJmMWRhZGY2Y2U5MzYxMDVjOTJlZGQxNzU4YmNlM2EyXCIsXCIwNTg3OTZjNTgzMzY2MTM2YTBmYTEyYjQyNzM3MDc5M1wiLFwiOTUxOGVkZDA5OGVkN2ZmMGZiZDExOTNlZDIwM2I3MTVcIixcImM3NTFhYjhhZDFhN2ExYzJjYjA0NTdiNjRiNzQ5M2UzXCIsXCIyZDVmNDhjNTBlZGE2NDBlZmU4ZGVjY2M3N2JjMWUwZFwiLFwiOTA0M2Q4ZjA4ODc4NTIxZTJkM2YwMjc1NjcxZWY2MjFcIixcIjNlNDA0ZWI0YmFjMDdmZjk1OGY3MTA2ZWUwOTBiMWE3XCIsXCI2M2M4ZjBhNTY4NTg1NzYwMDViNzc5ZmZiNTA0NzkyZlwiLFwiNGU5NTFlYzljZjc5NWQxNWJkOGE2MjhlYzIwY2Q3MzdcIixcIjVhMmY3MjFiMGFjNjUwNmI0MDQ0NmI5MGU2YTIwNGIxXCIsXCJlNjdmNTZhYzRjMjI3NGQzM2I3ODUwZjQ4ZTk2MGE1Y1wiLFwiODUwZDE2YTllZjg2YThjMzkyNzBjYjgwYTdiZGViMzVcIixcIjBiYzdiODlmNWNkYThiZTcyOTg0MzY5MjNlZTYxMGQ0XCIsXCI2Yzg3NzIxMGI5MGI1Y2ViZTUzZDc1OWFlYjNmNjg4MlwiLFwiNjJlNTJlNTczYmI0NGY4ZmFmMzExMjBkMGM3MzRhN2RcIixcIjRhN2E1MmQwYTI5MWE5MTU3ZGY5ZjNiYWZlZDY1YWRhXCIsXCJmODcyYjZhNzAwZjA5ODJjNjA5MWE1OGY4ZmFjOTI2MFwiLFwiMmZjZGM3OTkyN2QyMGE0YzljMjliNzlhNDYwNTFjZmJcIixcIjY2OGE1ZmVjYWM0NDVmM2IzYzNlNmJjMzI5MDU5MmFjXCIsXCI3ODgzODdjOWQzMGYzZjZlYTg1NzliZDQyMjRiOWViZlwiLFwiZTUwMTMyY2RiZTJiMjFkZTQxZDljY2E2MTg4NTNhNTlcIixcImM0Y2VlZjU5MDg5NzQxNDg5ZWM2OTE0OTI3MDUyODgyXCIsXCI5Mzc1YWU0NzkxMTNiMDUyOTIyNTZiZTc2YmZmZmI1M1wiLFwiOGQ4MjBkOTUzZTQ4NjdkYjgwYTM4ZDdhZmRkYzJhMmRcIixcImMxYzUxZTljNWMwZTIwZjgwNjRiOTY0MjE0NzRhYjU0XCIsXCJjYTdiMzEyYTMxZTI4MDAxYTA1NjBmMDIzOWJjZDcwOVwiLFwiZmNmYWNkY2Q3YzM4MzIyMDhmOTkzZWRjYTUwY2UyZjdcIixcIjc1YWJkMWZiZTQ5OWM2MGY3ZGI1NzU3YjBmZjc4MGVkXCIsXCIzZDllZjkwOTEwY2NjNjI5OWUyOGI3MTdjNTZkN2FiZFwiLFwiNmMwYzgwYWFmZjU5YTY0MDIzNzM5NWUzNzkzMDc0NTNcIixcImU5ZWNhNzFhMDA5YTFkYmRjOTQwZjJlMjI3ZjEyOTE5XCIsXCI4NzM4MTQ0NTI1MjNiNzVhN2VkNGM3NmU4MTAyOGJjY1wiLFwiNmE3YzdiMDc3YjU1OTgwMTNmZjJhNTcyY2ZlYzE2MzRcIixcIjZhZjM1MWVkNDllZWFmOTJjYzhkM2RmMDUxOTBkOGZjXCIsXCJmNzZhZWRjMDhlMzg3ZWZiY2Y3MDExMjdlMDEwNzVjZVwiLFwiYjE4OGExYjE2ZWRiZjNhMjEwOTk2NzgyN2U2MDVlMjlcIixcIjg0NGRiNDZhZmM5NzQzYTUzZTY1MDFkY2Q5NmQ4MjA2XCIsXCI1NmNmMWQ3YmNiNGU5YTE0ZTdjYjBkY2NkMWVkN2I0NlwiLFwiZDUxMDY2Y2IzZjBkNGZiYTQwZmI5OGMwYjUzZTZhZGRcIixcImM4MDk1M2FkYmU1MjAyOGNiZTQxOTdiMzNkMTk1OGEyXCIsXCJiMGVjMzUwNzY2YmQwOWE2YmY2ZWFiOTQ0ZTYyNWI0NlwiLFwiYmRiZTllNGI5MzMyNGQyNzE4ODI1NDllODlhODM1YWJcIixcImZiNzM4MDE1OGIyNjlmMjY5ZmJlZjNjYTA2NWNlYTg4XCIsXCI1NzFmNGE1Y2Q0NDg0MjI4OGFkNzA5MDBmOGU1MTk3MFwiLFwiOGExMTUzMzZjZjE0YTQ4M2EwMWJmZTRlZjJlOGFiMWVcIixcImIyY2YxYzMwN2ZkNzM4MTU2ZjA0MWVhZjcxMmRlYjRjXCIsXCJiNWY2MTJhOTkyN2I2YjRhMWJkMWY4Nzk5NjJiNGJmOFwiLFwiYTI2YzFmNGUxOTY2NTU0YzZhYjFlMGJlOTFiOWUxMThcIixcIjE5ZWMyZDI0OTQ1M2YyNjM2NzVkN2Q3NmJlODQ3OWZjXCIsXCI0MzZiZmQyZTYyZjU5ZDMzZWJkYjBhNGU3ZjZjMDcwYlwiLFwiODdiY2QyOTUyZTc4YmM3YWJjNGEwNWNmM2VhNmNlNTRcIixcImVjMThkNjJiZmNlNTVmNTBjMmFjM2U4NzU5YmNlYTYyXCIsXCJjM2ZkZDY3OTEwOWJjZTBmMGVhNmE2YjllNWUyNjQ3MlwiLFwiZDg5ZTk1NzJiMTlkNGNmMzQ1MWE5ZWRmYzdiNzIzNWVcIixcIjMyZWNmYmU0NzA1MjQyY2MyOTc0NTkwYTY1ZWM4MzhiXCIsXCJjYjczNTI1NGQxZjdlNGI1ZmY5MGQzNmEwMGJlMzE4YVwiLFwiN2RlY2I2YTY4ZmFhZTZjMzZkZWY1MjA5Y2M0M2NhYmZcIixcIjlkYzA0MjliOTMyZGU5YzdhMjYwZDFmMTc3NmZkN2JlXCIsXCI3ZTlhZGVkNGUzN2QzYWFiNzdmODcwNzY3NTAxMGU2N1wiLFwiZGFjZDQzYWQzMTk1ZDFhNjNiMDI1ZWI0OTBkNTU1MzlcIixcIjE4MzAzYTc0YTA3ZGI4N2EyYzgwNzljODQxNjQ5OWI5XCIsXCJhMjBjYTE1M2QxY2U1MGQwN2E0M2Y3MGRmMDI5YmJlZlwiLFwiMWE5MzJkMDFmM2M0MjI1NGYwYmYwMmFlOGJiYjFhNTFcIixcIjg0N2FkMmQwNDEzYWU4MWUxMjJkZWQ3ZmJhYThhODBlXCIsXCI1ZWI4YzQxMjdkZWJhOWVmM2NlNjhlNTgxYzM2MTFiMVwiLFwiZTZiMjE0ZjU2MTgyOTQ1OTMwMGU2YjcwYjk3OGRkNjZcIixcIjVhY2JlZTY0YzJiNjM0ODljMzYzM2YzM2RmM2VmY2VjXCIsXCI5NzQwZDZkNTFmNGI1NzI5ZmQ0NWJmODY1ZjVhNmQ5NlwiLFwiOTg2NTdmNWRkNzhhOWNlYTIwY2NjYjliOWNlODAxZTVcIixcIjY3NTU0NzUyODk3NzQyMjU0NmJjODg2Y2Q3NDBhMzY3XCIsXCJhYTAwMmQwYzkzM2IzNTVmNmI5MDNmNDgxMzUzYzFlNFwiLFwiNmMzMzkyMjMzYjljNjk5NTNkNDUxMjBjZTMxYzdjYzNcIixcIjJiMjc0NjIyMGY3OGRlMDJlYjBiMTliNWVhNjRmYmJkXCIsXCJjM2JjNDRjNDRhNWYzMTg4NTI3OWIwZDc3NjNiN2MzMVwiLFwiNjFjNjc0MjU5MGIwZDY4MmQ1NGI1OTdhZTM4YTFiZWVcIixcIjQ4ZTFiNTMwYzNmYTNmYWNlYmRiZjM4MDk1NzM2ZGFlXCIsXCJhZjUyYWQ4ZjNjZjIzN2I4MjZmNmU0MzY2MTg3OWFmMFwiLFwiZWQxYzQ5MjE4YzdmYjBlOTlmNmZiM2I2Y2VjYTQ2OGNcIixcIjRlNDhiMjM2YmQzMDE5MDA1ZTMyMmU4OGM3OGUxMDFmXCIsXCI3YzI4N2ZhYTFmNmNiOGI4OGMyYzAyMzk4OTViN2RiN1wiLFwiYmM1NjZiMGExNTBjYzA2MWJkMGY2ZjdiNWExNGU0MmJcIixcIjI1ZjU5MzJkNWM3MzBmNDNmMjk4NWM1MTViOTk0OGNjXCIsXCIzNGE3YWZlODFlYWYwNjY2MDc3ZGEwYTcwOWY4ODViNVwiLFwiNzY1NDA1NWI5MmRmMzY4MGZiY2U0N2IyNzU2MTRlZjVcIixcIjI1ZmYxOTcxMjRjZTk2MmY1N2M3ZGNiNDUxYTA2MDJjXCIsXCJiMmQzOWY1OGYzYzZjOGIyMzBjYzg5ZmJmNzI3YjdkN1wiLFwiNTkyZTAxMzNjNDU5MjAyNGYwNzY3NTc1ZTQyNGU3NzFcIixcIjcwOTZjODJhNDkzYmIxNzkxN2Q0YzkxYTc0NWRiNzFkXCIsXCIzYzM3NWRmOWYzMTExZGNmNzYxMGE4ZDQ3MWEyODM3OVwiLFwiNTg4OWUzNWI4MWMyYjMwZmMyYjg5NTk5M2FlZjc0YjhcIixcIjRiYmQwMGM5MTEyNWMwZDU0YjA4ZWVlZmQ0NGM5ZjQ5XCIsXCJkYmJlNDA2YWQ4MDFlYzdhMWViNDZhMDkyZTAyYzlhZFwiLFwiMzZjNGJiNWMxZGEyMDAyY2QzZGZkZTlmM2NlOTQxMDhcIixcImMzYzNhM2UwOTNhYWZlNjJkYTRhNDdlODNiZGJhNzc0XCIsXCJkYmI3ZDNhOGFlYTgxMzE4MmEyOGQ0OTBhYzNmOTU4OFwiLFwiMTY0MjI2MzNiNGNlNDI1MTVhMGNkY2E5YTFkYmY2NDVcIixcIjUxNGE2MWIzMzAxNmRkY2U0ODk5OTdiYWQ2MzE5OGY5XCIsXCIyNDJmMTU2YWZmNTk5ODU4YWJiNDEwNmI1YzkwYzY4ZlwiLFwiMDc3YWYzZjNjZDg4NzkyYTM5NTdiZTQwZGNlYTZmNTdcIixcImFjNTM0NWJmM2VjYWM0MWYxZDAwMTE1N2FmNzA1MzMyXCIsXCJlZTM0YTM2M2VlYTdkOTFmZGMzODlkNGYzOTMxZmJkZVwiLFwiYmZhNDE3NTI2MjA4YzI0YzQzZjA3NDVmODc2MzIyNmVcIixcImQ4NGFkZWEzMDY2ZDhjOWI1NDZiMmI2MzFhZWI2NzM3XCIsXCJmYTM1Yzk1MGQ5NjdmOTgwMzY3ODVkYzg0MjY2OTRjOVwiLFwiNzY5NmZhMjIxMjU0Y2EwYzBlNWFhYjlhMDJhM2I3ZTJcIixcImJlYjY4N2U3ZjQwOWU2ZWQ1NzIwYWNmNmQ3NjFlNGQ4XCIsXCI2N2FhNjI2NjliZTdiOTMyMmE5MTdkMjVkOWVhNDY4M1wiLFwiN2Y1NjA1ODNiMjg2MmU3MzJlZTY4ZmExYTU5M2NiNWNcIl19IiwiNTNkZmEwYzgyODE5NmU4ODVhM2ZjZGE4OWJiMzlmOTEiXQ==\n\nThe user-controlled value was:\nwyj7xcixmvwioltcijhhzmrinjy5ymnknti5oduxmdbmztk3ytlizwfjm2u2xcisxciwodbinzfhntcxzweynwiwnzu1ymnkzju2nmfiywvmyvwilfwiymfjnzu3zgmwmwexzthhmgm4yzlhmgqymdbjnwriogvciixcimy1zgyymjbjotqyyjy4ogi0zdixmtqwodcxn2fjytc0xcisxci0ymzmody2nzbhyzfmytywmwmwyzk5njyxzdi1yzqwmvwilfwiodu1odg0zmu5m2jlyji2owqwmduzzmuznjdkmwm2yzlciixcijmwmmiwmtyzy2vlnjhjy2ywyzmwzmuwntbhztzjymiyxcisxcizmty2mtc2mji5ngq2owqyodjhywqwmmeynji3m2zim1wilfwinmnimmm2mdlim2m5zja0zgvjoti1ngyzy2rhzti3mdbcil0sxcixm1wioltcija0njzly2u1yzeyotnjn2u0owrlntrmnwqxzju3mtaxxcisxci5nmfmytnhmzaynmiwotk0nji5ytdjmtzmmtbky2i5zvwilfwiyzhjnjq3mgy0ztnkzjbizdfizju4ntnjntuyyjg4mzjciixcijvkmdlhymjkmtcxmwi1ogy5mzvlnzvjzjhkmzu0mzu1xcisxci1nzfizjljndrlzdyzyzc5ywnjzdyyngiymwuxm2e2zfwilfwiogy1njk3ndq1zjqwmgmwmdezy2fkymqzmzvmmdyxowvciixcijy5otu4mduwymy5ogywzmjhzdmzm2u4zjy1nja0ywfhxcisxcixzdhlzjhmy2y5mdnmnty4mtuwnwrhmte0ogjmndqyzvwilfwizgvhy2vkzgi0zjvjodmxmtljnzjkyjjmztk3mmi1odrciixciji3yzu0zgzlodnlnjg4yjiwowiznjm5ytu0yzrjzte1xcisxcjlnwuzndjlowm2oddiodflyzblmgu5n2m0n2ewnge0ovwilfwiyta4zme4mmm4mtqwotlmyjzmodu3ztq3nmrkmtflmtlciixcijyzy2uwztu1zmqznge0odrjmtvlzdhmotk0zdzlmgu2xcisxci3mgq4mgjlywnky2ziogjizgjkodhkm2e0yta1zmi1mlwilfwimduymtfiywq3ndc2ymqwztzjodfhnjjjodvizdvjztbciixcimqzmta2ywfknwvmzdgynmm0otgyn2zjyjy1ymq4mddixcisxcjmmdrhzdrlngrjyjzknzgzmtcznjmzogexytqzzmzjnvwilfwiyjeyymu0zdljothimwfintvkywq4nmixnjk5mjkyzjjciixcimrjzty2zwrhyja4ztqynjhkzwe1nwqyyjfhogixmmmyxcisxci3mtqzmmezzjuwmzvlmwvjnjfkymriotc2nwm3nwi5zfwilfwiyjc1njvin2vjmjzjztyxzjbkyjvjzmvjyzziowmxy2fciixcime0zjcxnwnlzdlmzju3m2q3zdyyzjjhyjy3owmwywywxcisxciyzjazodbmmmq1nmvhoge4ownky2m4yja5mdy1nwvjmlwilfwiymy1mta0yjjjmta4yjy3odmwnta3ztzlzmiwn2u3nthciixcijc2zgyzzwnkzdliodi4njkwzdvlm2zmmmm5nty1oge1xcisxci1nzq0mgiyowjmytqzmdc4zgnlodixnthhndi1yze4nfwilfwiyzi3mmmyytrhndm3mtg5mdlhmtc1m2vlndfiymjhmtrciixcijrjmze2ntvlotc5ndhkndqyztm1mzqznzu5yzg5ngrixcisxcjlmznlmty3mwmxnwi0zti3mzg5zdayzje3ytg1nzu2yvwilfwingzlyjk4nmi4zmmyyzm0nzbjztvimjnkogvmytdjmgzciixcijawm2izmzy3nzvlode0nzi5mmvloda3ndbiytrmmjy4xcisxcjkmzkxnti1mdmzmtg3odhlzwizmzy5mtdlzjm1y2e4zvwilfwimzu5zthjzwmyzjzlotjhy2e4mgrhogjizdvhm2uwmdvciixciji3njvhytdiythlymjlztk2nwi3ywmxzjdlyjjhotczxcisxci1oguwnjy2mjjln2iyyjhlotdizjy2mdq5nzzmowqwmvwilfwimtm5nwjiytg3zmvlywviyjhkzmmwzjawzjm1ywvhmzdciixcimjkotrjngy0zjg4m2uyodexndc1zmqyntm0n2rkzmfkxcisxci0nzblm2mwmjuxmwq1mdbjzjdhmzy5zgjlytixotm1ovwilfwimwrlmda3mmfmmdnimtm2mdkwzmi1zmjjzjc3n2vjmmnciixcijaxyjfkytezogqwnzuymdfjnznkyzm0owzjngzlzja4xcisxci0mjvjmddjm2q5m2eyymzjymringnmyzu1nmywztfmm1wilfwiytdiytcxyzvin2uyode2zgy2m2nmodq4y2yymtm0n2zciixcimy5nzm0mmjlzdm0mzcyogzlngy5mzc1y2fhogmwoddlxcisxci4nzzhoge2ztvim2vjmgyzmzq1yzdkodezmzazyzyyovwilfwiowiyywq2zddjmzgyymizntu0zgiwzgy2otg1odk1mzvciixcijnjmwq2nwe3mmfhntuwowqwzju0yzhjzjy1nzdmmdg0xcisxci1mdi0njkymdiwmmrimtk0mtyxywy3ndvjymi0yjcxn1wilfwizjgxntezngm5yjzjmwiwm2e5mwfhmdvmnzuymjvhmzdciixcijnjytm5mtu0mzcwowi2ywnlndk5owrlnzzkmjuzytcxxcisxci4mzq4zda5ymjlntzjmtningjindjiyzq3ogmxnmq3nlwilfwiy2q2y2vkmdq5ymuwzthiyzhjzde0ywe1zdm1mjc1ywjciixcijkwmdixodyzoti2mzu0zdm2mwe0mzm1yty4yzgwmtg4xcisxcjlmwnjyte3zdiymjm0mtfhzjfintczmti2zje2ndflmlwilfwinzhlyzc1oti1nje3nwe4n2i1mjnkzddimjazntjlmdfciixcijq3yjrhndzjognkogfhymzlnjq4mzc2mmfiywnhotc5xcisxcjmmdg2nzzjyzllnzi1njllyjgyota1mmm3y2mxymq3nfwilfwimgm3njzlytk2otm2nwq2zjg0yznkzmy3odu2ogm3mjdciixcijgzzjbjntmwnmu1oguwzmmzzgjinmi1otljzwvlztm1xcisxcixmwi0y2y0yjjlnwi3zjzknwewy2myytjjzje1n2jjylwilfwiztgxytczmgy5mty5n2niztk3n2ezyzixodhjnjeyztlciixcimfimwy2zdzmodk1ytk4mzlkodg2ngzimtm0oteyzwi0xcisxci5zgjjmje1zjrmmmu1mzaymzewotjmnzq5mjljzjblofwilfwindbhymi0mmq0zdrhywmxzwqxoduymwizmwuzmzbmmjjciixcimvhzjuyzju2otcwmzviodu1ywzimjg4nza0ywizzme0xcisxci3nwy0njbjyzhmody5nzyxyza2mtq5ztvky2qymjcxn1wilfwindmxmzvjnzqxztuyzmrjzdlmmwy1ntuxotuymdgxogzciixciji2zjnkmmy3zjlmzgzlotc4nzdmywzkndm0nmm5nwu3xcisxcizmdm0mzk3njgyy2y1mtkzn2uznwu1ngm3m2fhzjmyy1wilfwimjgymja2odmxmjnmnzawzgu4ywyxywqzzde4mmy2yzlciixcimnhzmjkztjmotuxzmexndmxzgq5mzqyyjvhmjdjmjjixcisxciwzgmyzjvhndbiotvlotkyyzdmotu5otfjnwe5ywq5y1wilfwimdhlyjizzjrhnziyzda1odm3nzzindy0odc0mzq1mmzciixcijc0ytkwntvhy2iymmrimme5ntq5ywe4njdlymjmnze0xcisxcjmzgnhymiyndrjmzq5mzzlnjq2nwrlmmfmmdizyjgwylwilfwizdniotnmmddjmdg1ntexnzk4y2rmnjq2ntuxmjayyzbciixcije0m2rmymqxntjknwzhodfkndizztexzjlhzjk3zdrhxcisxci0nza0y2jjmziwotlmyjeyywuwmdizody0m2i5nta4y1wilfwiywrhmzzjymriyzqyndy1mduwzjhhmmiwndq4zjk2ytrciixciji2mjqwyju2yji2nwiyndq3mtu5y2u0nzlimdm1mmi4xcisxci3zdrjzjcxywmxy2jmzdqxntmymze3mwezyzfmzge0mvwilfwinmy3njzmndu1mzywodayodyyzwflmtk4ndc4mte3ymnciixcimrhzdq0ndu4ngzmytvmnzbhzwe0owfhztcyngy0mtjkxcisxcjmywvkzdflmdm5zwvjngi2zgrjnwiwyzc1mmm0mwu2nlwilfwiyzkyzje5zju2nwu2mmm5ndc5zdq1nzblztg4ytjizdfciixcijbimzlkntdjodrjmjbjogizndrlnji1ntqym2m1yty3xcisxcjhymzjyzi3owvlnmjjnjrlzdk1nwm1mzljmzkzmta3nfwilfwingnkmzk5njrjmji3yjyxzddkmmqynmm1nzvjogvmzgrciixcijvhnzrjnzm4mza1njizzgvizmyyzdmwnmi2ytzimdg0xcisxcjlodk3ztnjmwjjmtm5nzi5odm2mte1mta1yzuzmzlhn1wilfwiogiyodg2zgrlndzmnjbkmgviyzczodvkyja4ngjmytfciixcijc4ytdlyjizmmzlnjjkmdi3mdg5mdfiodvlntvhzgm5xcisxcjkngvkzmnimjq5nmu1yjhmmwm1ywu1mjg5ognknjhjofwilfwizmqzytqxytcyogzlztg2mgy0mdg1ndc5zdayzwjjntzciixcimy2yme4yji2owqxyzg5ztc0odm2owvhzgi4ymzkywqzxcisxcjmogrjmgvlmwm0otg2yme4mtu4ndyyzme1mjrlzmy3y1wilfwizgmzmzjkmmezyzexzjvkyze2nzbhotgzmjbjyzviztjciixcimyyzjnintflnzbjm2ziymqwyti3mtm0mwfjody2mjlhxcisxcjmzmniztnlztk3zddiywm5nju3mdnkzjbjzjzmmtezzlwilfwiy2m3ztnmytczodu5mtu0ngy2mmjinzywndi3y2u3zgrciixcijixztqzm2uyyzrjmzg1nwyxmtzlowmxmzy2odyymtawxcisxciwmwmzzjuxyjq4y2uyzdu5mjaxmwuyzjzkztrhzdewnlwilfwiowe2zjk1zjiyntfmzde0zjkyywvkywzhm2jlngi2ymnciixcijljndjjodjmyzjiztfhmgnhnjlhmtdhywmxyjg3mwyxxcisxci4nmm5nza2ytc0mjq3ownhzjq2njewnjiznwqwzdqwn1wilfwizwm1zdczzwvkmje2mzfizjvjyzcxztcyyzrhmzu4njrciixcijg1mjrkmzm2owjknda4m2vmogm5mwniotgxyzewmzdixcisxcizotdimmjjm2jjmwnmyzdin2u3ywy2nji0mmuzywzlovwilfwiowu0yznlywvinze4odizzmuxodiyzjgxyjg4zjblnzvciixcijliyzhiowqwnzeznmq2m2ewmdkymzq1ntm4zwm2mjizxcisxcjkngi5zmi1nwq2owyzowyzyjhiogy2ymy2mzm1njkyn1wilfwimtuzyzrimwe3ztq3njuwmjg5mznkzgfmyzvmmtzhyzfciixciji4odizytm2oweynde3ntg3zgizmzfmowi5mznlntfkxcisxcjhyjm3ngvjngvmmgvmmtcxmjc0n2vlotgxnwq3ytljnvwilfwimjm5nwqxmgfkzde5nzmxngu3zdq5ymnmzjjizjfizmnciixcimi5nda4mjvkndhmzdnlzthkotiwnjflngiyotrinznixcisxci0mtyzmmeymzzimmq3mtm0otnkzwm4odzlzjjhmgm1ovwilfwimmvln2vhnzi4ndrmy2u3yjk3yjayodk3zjgxmjhkztjciixcijqwmjawn2vmnju4mdbin2y3ytiymzrlzjrin2exntjlxcisxcjkmdg1zjkxn2qwzdazodjlyza5zty2ody5ztgyzdkwyvwilfwintjmm2zkzgfkmzm5ytkwmzrlmdixmdczowu0nmvmn2nciixcimy2zgrhotu0yjrlogjizdvkote4ywzmnjg3njbhyjkzxcisxci0yjg2njiyodi2yzk5ytbmm2nhmwm1ntfjytm5nmzlzvwilfwimtiyztewndzlmtqyzwfmnddkytvmntjlmtk2odmzyzzciixcijyxntu0nwy1mdninmvlogjhmmywnjg1zdbjytewmzc2xcisxci5zgnjmdeyythhowriyjkzywnizdczmzblmwi0mmm5zvwilfwiodhhzjk5nddjzwqxnjg1zwiyyjg2y2rhngmzmzc1nddciixcijlhm2q4ythhyzjkmwyyymyyodrkmzqwzgrkzjhlmdk5xcisxcjmoty2mjzimza5odiyyti3nwy5y2zinmiymdu0zwjlmvwilfwiyje1zmqyntlinzrhywfjyzdlogiwodm1zgy1zjjhzdnciixciji1mwq0ztazmmzmnty1mjzmzmjlndq2mjkyy2uwnguyxcisxci4ntm0zjixmgrlzdkznwrhmtbhyzq4odeyodazotuwofwilfwiodawmwrkzwnhnwq2zjhhztizymjintc4zte1ztnkzdfciixcimeyyza2yzllmza4njy4yjjiywy2mdizmtg3mwqyyteyxcisxcjknzfkmgu1zjblyjqznzbintljnjvkngy4mjuynda5zfwilfwizddhownmzwi4ndk4zmixm2rimzc1zjhiyzu5ntnhzdrciixcijvjmzfjzwy1y2myzdnjztqzmze5yjmxody5ntc5zdnmxcisxcjkn2vkndziztm1yjexnzayngzjnja2nwjiotjkyzdlmvwilfwimdjimdlkndfinwy3yzblnwq1mgy3mmzmmzzmyte4njzciixcijflogu1mwe0ymu3y2fhytm1mjuxodhjzde5ndlmzgfjxcisxcixmwnhmtazymflywu4owvjmmu1ytkzy2nmztfhmjg5mvwilfwinwrimwy1zdk0ogi4nwnlodewzgyyota2ogi5n2rjyzhciixcijjmmwrhzgy2y2u5mzyxmdvjotjlzgqxnzu4ymnlm2eyxcisxciwntg3otzjntgzmzy2mtm2ytbmyteyyjqynzm3mdc5m1wilfwiotuxogvkzda5ogvkn2zmmgzizdexotnlzdiwm2i3mtvciixcimm3ntfhyjhhzdfhn2exyzjjyja0ntdinjrinzq5m2uzxcisxciyzdvmndhjntblzge2ndblzmu4zgvjy2m3n2jjmwuwzfwilfwiota0m2q4zja4odc4ntixztjkm2ywmjc1njcxzwy2mjfciixcijnlnda0zwi0ymfjmddmzjk1ogy3mta2zwuwotbimwe3xcisxci2m2m4zjbhnty4ntg1nzywmdvinzc5zmzinta0nzkyzlwilfwingu5ntflyzljzjc5nwqxnwjkoge2mjhlyziwy2q3mzdciixcijvhmmy3mjfimgfjnjuwnmi0mdq0nmi5mgu2ytiwngixxcisxcjlnjdmntzhyzrjmji3ngqzm2i3oduwzjq4ztk2mge1y1wilfwioduwzde2ytllzjg2ythjmzkynzbjyjgwytdizgvimzvciixcijbiyzdiodlmnwnkythiztcyotg0mzy5mjnlztyxmgq0xcisxci2yzg3nzixmgi5mgi1y2viztuzzdc1owflyjnmnjg4mlwilfwinjjlntjlntczymi0ngy4zmfmmzexmjbkmgm3mzrhn2rciixcijrhn2e1mmqwyti5mwe5mtu3zgy5zjniywzlzdy1ywrhxcisxcjmodcyyjzhnzawzja5odjjnja5mwe1ogy4zmfjoti2mfwilfwimmzjzgm3otkyn2qymge0yzljmjlinzlhndywntfjzmjciixcijy2oge1zmvjywm0ndvmm2izyznlnmjjmzi5mdu5mmfjxcisxci3odgzoddjowqzmgyzzjzlytg1nzlizdqymjriowvizlwilfwiztuwmtmyy2riztjimjfkztqxzdljy2e2mtg4ntnhntlciixcimm0y2vlzju5mdg5nzqxndg5zwm2ote0oti3mduyodgyxcisxci5mzc1ywu0nzkxmtnimduyotiyntziztc2ymzmzmi1m1wilfwiogq4mjbkotuzztq4njdkyjgwytm4zddhzmrkyzjhmmrciixcimmxyzuxztljnwmwztiwzjgwnjrioty0mje0nzrhyju0xcisxcjjytdimzeyytmxzti4mdaxyta1njbmmdizowjjzdcwovwilfwizmnmywnky2q3yzm4mziymdhmotkzzwrjytuwy2uyzjdciixcijc1ywjkmwziztq5owm2mgy3zgi1nzu3yjbmzjc4mgvkxcisxcizzdllzjkwotewy2njnji5owuyogi3mtdjntzkn2fizfwilfwinmmwyzgwywfmzju5yty0mdiznzm5nwuznzkzmdc0ntnciixcimu5zwnhnzfhmda5ytfkymrjotqwzjjlmji3zjeyote5xcisxci4nzm4mtq0nti1mjninzvhn2vkngm3nmu4mtayogjjy1wilfwinme3yzdimdc3yju1otgwmtnmzjjhntcyy2zlyze2mzrciixcijzhzjm1mwvkndllzwfmotjjyzhkm2rmmduxotbkogzjxcisxcjmnzzhzwrjmdhlmzg3zwziy2y3mdexmjdlmdewnzvjzvwilfwiyje4ogexyje2zwrizjnhmjewotk2nzgyn2u2mdvlmjlciixcijg0ngrindzhzmm5nzqzytuzzty1mdfky2q5nmq4mja2xcisxci1nmnmmwq3ymningu5yte0ztdjyjbky2nkmwvkn2i0nlwilfwizduxmdy2y2izzjbkngziytqwzmi5ogmwyjuzztzhzgrciixcimm4mdk1m2fkymu1mjayogniztqxotdimznkmtk1ogeyxcisxcjimgvjmzuwnzy2ymqwowe2ymy2zwfiotq0ztyynwi0nlwilfwiymriztllngi5mzmyngqynze4odi1ndllodlhodm1ywjciixcimzinzm4mde1ogiynjlmmjy5zmjlzjnjyta2nwnlytg4xcisxci1nzfmnge1y2q0ndg0mji4ogfknza5mdbmogu1mtk3mfwilfwiogexmtuzmzzjzje0ytq4m2ewmwjmztrlzjjlogfimwvciixcimiyy2yxyzmwn2zknzm4mtu2zja0mwvhzjcxmmrlyjrjxcisxcjinwy2mtjhotkyn2i2yjrhmwjkmwy4nzk5njjingjmofwilfwiyti2yzfmnguxoty2ntu0yzzhyjflmgjlotfiowuxmthciixcije5zwmyzdi0otq1m2yynjm2nzvkn2q3nmjlodq3owzjxcisxci0mzzizmqyztyyzju5zdmzzwjkyjbhngu3zjzjmdcwylwilfwioddiy2qyotuyztc4ymm3ywjjngewnwnmm2vhnmnlntrciixcimvjmthknjjizmnlntvmntbjmmfjm2u4nzu5ymnlytyyxcisxcjjm2zkzdy3otewowjjztbmmgvhnme2yjllnwuynjq3mlwilfwizdg5ztk1nzjimtlkngnmmzq1mwe5zwrmyzdinziznwvciixcijmyzwnmymu0nza1mjqyy2myotc0ntkwyty1zwm4mzhixcisxcjjyjcznti1ngqxzjdlngi1zmy5mgqznmewmgjlmze4yvwilfwin2rly2i2yty4zmfhztzjmzzkzwy1mja5y2m0m2nhymzciixcijlkyza0mjliotmyzgu5yzdhmjywzdfmmtc3nmzkn2jlxcisxci3ztlhzgvknguzn2qzywfinzdmodcwnzy3ntaxmgu2n1wilfwizgfjzdqzywqzmtk1zdfhnjnimdi1zwi0otbkntu1mzlciixcije4mzazytc0yta3zgi4n2eyyzgwnzljodqxnjq5owi5xcisxcjhmjbjyte1m2qxy2u1mgqwn2e0m2y3mgrmmdi5ymjlzlwilfwimwe5mzjkmdfmm2m0mji1ngywymywmmflogjiyjfhntfciixcijg0n2fkmmqwndezywu4mwuxmjjkzwq3zmjhythhodblxcisxci1zwi4yzqxmjdkzwjhowvmm2nlnjhlntgxyzm2mtfimvwilfwiztzimje0zju2mtgyotq1otmwmgu2yjcwyjk3ogrknjzciixcijvhy2jlzty0yzjinjm0odljmzyzm2yzm2rmm2vmy2vjxcisxci5nzqwzdzkntfmngi1nzi5zmq0nwjmody1zjvhnmq5nlwilfwiotg2ntdmnwrknzhhownlytiwy2njyjliownlodaxztvciixcijy3ntu0nzuyodk3nzqymju0nmjjodg2y2q3ndbhmzy3xcisxcjhytawmmqwyzkzm2izntvmnmi5mdnmndgxmzuzyzflnfwilfwinmmzmzkymjmzyjljnjk5ntnknduxmjbjztmxyzdjyznciixcijjimjc0njiymgy3ogrlmdjlyjbimtlinwvhnjrmymjkxcisxcjjm2jjndrjndrhnwyzmtg4nti3owiwzdc3njnin2mzmvwilfwinjfjnjc0mju5mgiwzdy4mmq1ngi1otdhztm4ytfizwvciixcijq4ztfintmwyznmytnmywnlymrizjm4mdk1nzm2zgflxcisxcjhzjuyywq4zjnjzjizn2i4mjzmnmu0mzy2mtg3owfmmfwilfwizwqxyzq5mje4yzdmyjblotlmnmzim2i2y2vjytq2ognciixcijrlndhimjm2ymqzmde5mda1ztmymmu4ogm3oguxmdfmxcisxci3yzi4n2zhytfmnmniogi4ogmyyzaymzk4otvin2rin1wilfwiymm1njzimgexntbjyza2mwjkmgy2zjdinwexngu0mmjciixciji1zju5mzjknwm3mzbmndnmmjk4nwm1mtviotk0ognjxcisxciznge3ywzlodflywywnjy2mdc3zgewytcwowy4odvinvwilfwinzy1nda1nwi5mmrmmzy4mgziy2u0n2iynzu2mtrlzjvciixciji1zmyxotcxmjrjztk2mmy1n2m3zgninduxyta2mdjjxcisxcjimmqzowy1ogyzyzzjogiymzbjyzg5zmjmnzi3yjdkn1wilfwintkyztaxmznjndu5mjayngywnzy3ntc1ztqyngu3nzfciixcijcwotzjodjhndkzymixnzkxn2q0yzkxytc0nwrinzfkxcisxcizyzm3nwrmowyzmtexzgnmnzyxmge4zdq3mweyodm3ovwilfwintg4owuznwi4mwmyyjmwzmmyyjg5ntk5m2flzjc0yjhciixcijriymqwmgm5mteynwmwzdu0yja4zwvlzmq0ngm5zjq5xcisxcjkymjlnda2ywq4mdflyzdhmwvindzhmdkyztayyzlhzfwilfwimzzjngjinwmxzgeymdayy2qzzgzkztlmm2nlotqxmdhciixcimmzyznhm2uwotnhywzlnjjkytrhnddlodnizgjhnzc0xcisxcjkymi3zdnhogflytgxmze4mmeyogq0otbhyznmotu4ofwilfwimty0mji2mzningnlndi1mtvhmgnky2e5ytfkymy2ndvciixcijuxnge2mwizmzaxnmrky2u0odk5otdiywq2mze5ogy5xcisxciyndjmmtu2ywzmntk5odu4ywjindewnmi1yzkwyzy4zlwilfwimdc3ywyzzjnjzdg4nzkyytm5ntdiztqwzgnlytzmntdciixcimfjntm0nwjmm2vjywm0mwyxzdawmte1n2fmnza1mzmyxcisxcjlztm0ytm2m2vlytdkotfmzgmzodlkngyzotmxzmjkzvwilfwiymzhnde3nti2mja4yzi0yzqzzja3ndvmodc2mziynmvciixcimq4ngfkzwezmdy2zdhjowi1ndzimmi2mzfhzwi2nzm3xcisxcjmytm1yzk1mgq5njdmotgwmzy3odvkyzg0mjy2otrjovwilfwinzy5nmzhmjixmju0y2ewyzblnwfhyjlhmdjhm2i3ztjciixcimjlyjy4n2u3zjqwowu2zwq1nziwywnmnmq3njflngq4xcisxci2n2fhnji2njliztdiotmymme5mtdkmjvkowvhndy4m1wilfwin2y1nja1odnimjg2mmu3mzjlzty4zmexytu5m2ninwncil19iiwintnkzmewyzgyode5nmu4odvhm2zjzge4owjimzlmoteixq=="
+						}
+					],
+					"count": "22",
+					"systemic": false,
+					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://ottiu.com/</p><p></p><p>appears to include user input in:</p><p>a(n) [meta] tag [content] attribute</p><p></p><p>The user input found was:</p><p>gform_source_page_number_1=1</p><p></p><p>The user-controlled value was:</p><p>width=device-width, initial-scale=1</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
+					"cweid": "20",
+					"wascid": "20",
+					"sourceid": "12796"
+				}
+			]
+		}
+	],
+	"sequences":[
+	]
+
+}

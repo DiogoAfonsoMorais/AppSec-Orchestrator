@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Detail </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .grade-A {
+            color: #22c55e;
+            border-color: #22c55e;
+        }
+
+        .grade-B {
+            color: #84cc16;
+            border-color: #84cc16;
+        }
+
+        .grade-C {
+            color: #eab308;
+            border-color: #eab308;
+        }
+
+        .grade-D {
+            color: #f97316;
+            border-color: #f97316;
+        }
+
+        .grade-F {
+            color: #ef4444;
+            border-color: #ef4444;
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-8">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="flex items-center gap-4 mb-8">
+            <a href="/dashboard"
+                class="bg-white p-2 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-500" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+            </a>
+            <h1
+                class="text-2xl font-black text-slate-800 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-500">
+                Scan Assessment Details</h1>
+        </div>
+
+        <!-- Scan Card -->
+        <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden mb-8">
+            <div class="p-8 flex flex-wrap gap-8 items-center bg-gradient-to-br from-white to-slate-50">
+                <div
+                    class="h-24 w-24 rounded-full flex items-center justify-center text-4xl font-black border-8 grade-<%= scan.grade %> bg-white shadow-lg">
+                    <%= scan.grade %>
+                </div>
+                <div class="flex-1 min-w-[300px]">
+                    <div class="flex items-center gap-3 mb-2">
+                        <h2 class="text-3xl font-black text-slate-800 truncate">
+                            <%= scan.target %>
+                        </h2>
+                        <span
+                            class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-blue-100 text-blue-600 border border-blue-200">
+                            <%= scan.targetType %>
+                        </span>
+                    </div>
+                    <div class="flex gap-6 text-sm text-slate-500 font-semibold mb-4">
+                        <span class="flex items-center gap-2">
+                            <div class="h-2 w-2 rounded-full bg-red-500 animate-pulse"></div>
+                            <%= scan.counts.critical + scan.counts.high %> HIGH THREATS
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <div class="h-2 w-2 rounded-full bg-orange-500"></div>
+                            <%= scan.counts.medium %> MEDIUM
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <div class="h-2 w-2 rounded-full bg-blue-500"></div>
+                            <%= scan.counts.low %> LOW
+                        </span>
+                    </div>
+                    <div class="text-[10px] font-mono text-slate-400">ID: <%= scan.id %> | CREATED: <%=
+                                scan.createdAt.toLocaleString() %>
+                    </div>
+                </div>
+                <div class="text-center bg-slate-100/50 p-6 rounded-2xl border border-slate-200">
+                    <div class="text-xs font-black text-slate-400 uppercase mb-1">Security Score</div>
+                    <div class="text-5xl font-black text-slate-800">
+                        <%= scan.score %>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Findings Grid -->
+            <div class="p-8 border-t border-slate-100">
+                <h3 class="text-xs font-black text-slate-400 uppercase mb-6 tracking-[0.3em] flex items-center gap-2">
+                    <span class="h-2 w-2 bg-blue-500 rounded-full"></span>
+                    Detailed Vulnerability Report
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <% scan.findings.forEach(f=> {
+                        const sevClass = f.severity === 'CRITICAL' || f.severity === 'HIGH' ? 'bg-red-600 text-white' :
+                        (f.severity === 'MEDIUM' ? 'bg-orange-500 text-white' : 'bg-blue-500 text-white');
+                        %>
+                        <a href="/dashboard/finding/<%= f.id %>"
+                            class="group block bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-400 hover:shadow-md transition-all">
+                            <div class="flex justify-between items-start mb-4">
+                                <span
+                                    class="text-[10px] font-black uppercase px-2 py-0.5 rounded shadow-sm <%= sevClass %>">
+                                    <%= f.severity %>
+                                </span>
+                                <span class="text-[9px] font-mono font-bold text-slate-400 tracking-tighter uppercase">
+                                    <%= f.toolName %>
+                                </span>
+                            </div>
+                            <h4
+                                class="text-sm font-bold text-slate-800 mb-2 leading-tight group-hover:text-blue-600 transition-colors">
+                                <%= f.description %>
+                            </h4>
+                            <% if (f.owaspCategory) { %>
+                                <div class="text-[10px] text-blue-600 font-bold mb-4">🛡️ <%= f.owaspCategory %>
+                                </div>
+                                <% } %>
+                                    <div
+                                        class="flex items-center gap-1 text-[10px] font-black text-slate-400 uppercase tracking-widest mt-auto">
+                                        View Intelligence <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-3 w-3 transition-transform group-hover:translate-x-1" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </div>
+                        </a>
+                        <% }); %>
+                            <% if (scan.findings.length===0) { %>
+                                <div class="col-span-full py-12 text-center">
+                                    <div class="text-slate-300 text-4xl mb-4">✨</div>
+                                    <p class="text-slate-400 text-sm font-medium italic">No vulnerabilities discovered
+                                        in this assessment.</p>
+                                </div>
+                                <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
