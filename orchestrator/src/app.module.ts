@@ -11,6 +11,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { ProjectsModule } from './projects/projects.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { IntegrationsModule } from './integrations/integrations.module';
+import { AiModule } from './ai/ai.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { IntegrationsModule } from './integrations/integrations.module';
     ProjectsModule,
     NotificationsModule,
     IntegrationsModule,
+    AiModule,
   ],
   controllers: [AppController],
   providers: [AppService],

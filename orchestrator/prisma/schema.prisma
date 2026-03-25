@@ -77,6 +77,8 @@ model Finding {
   recommendation String?  @db.Text
   filePath       String?  // the file where vulnerability was found (if applicable)
   metadata       Json?    // Optional JSON for tool-specific extra data
+  status         String   @default("OPEN") // OPEN, FALSE_POSITIVE, ACCEPTED_RISK, RESOLVED
+  resolutionNote String?  @db.Text
   createdAt      DateTime @default(now())
   scan           Scan     @relation(fields: [scanId], references: [id], onDelete: Cascade)
 }

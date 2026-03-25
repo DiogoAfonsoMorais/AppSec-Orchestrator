@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finding Detail </title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
@@ -114,6 +115,68 @@
                             </div>
                         </div>
                     </section>
+                    
+                    <!-- Triage Command Center -->
+                    <section class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mt-2 shadow-inner">
+                        <h3 class="text-[10px] font-black text-slate-500 uppercase mb-4 tracking-[0.4em] flex items-center gap-2">
+                            <span class="h-1.5 w-1.5 bg-indigo-500 rounded-full"></span>
+                            TRIAGE COMMAND CENTER
+                        </h3>
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-200 w-fit">
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CURRENT STATUS:</span>
+                                <% const statusColor = finding.status === 'FALSE_POSITIVE' ? 'bg-slate-200 text-slate-600' : (finding.status === 'ACCEPTED_RISK' ? 'bg-amber-100 text-amber-600' : (finding.status === 'RESOLVED' ? 'bg-emerald-100 text-emerald-600' : 'bg-red-100 text-red-600')) %>
+                                <span class="text-[11px] font-black uppercase px-2 py-1 rounded <%= statusColor %>">
+                                    <%= finding.status || 'OPEN' %>
+                                </span>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <% if (finding.status !== 'FALSE_POSITIVE') { %>
+                                    <button onclick="updateStatus('FALSE_POSITIVE')" class="px-6 py-3 bg-slate-800 text-white text-[11px] font-black uppercase tracking-wider rounded-xl hover:bg-slate-700 transition shadow-lg hover:shadow-xl hover:-translate-y-0.5">Mark as False Positive</button>
+                                <% } %>
+                                <% if (finding.status !== 'ACCEPTED_RISK') { %>
+                                    <button onclick="updateStatus('ACCEPTED_RISK')" class="px-6 py-3 bg-amber-500 text-white text-[11px] font-black uppercase tracking-wider rounded-xl hover:bg-amber-600 transition shadow-lg hover:shadow-xl hover:-translate-y-0.5">Accept Risk</button>
+                                <% } %>
+                                <% if (finding.status !== 'RESOLVED') { %>
+                                    <button onclick="updateStatus('RESOLVED')" class="px-6 py-3 bg-emerald-500 text-white text-[11px] font-black uppercase tracking-wider rounded-xl hover:bg-emerald-600 transition shadow-lg hover:shadow-xl hover:-translate-y-0.5">Mark Resolved</button>
+                                <% } %>
+                                <% if (finding.status !== 'OPEN') { %>
+                                    <button onclick="updateStatus('OPEN')" class="px-6 py-3 bg-blue-500 text-white text-[11px] font-black uppercase tracking-wider rounded-xl hover:bg-blue-600 transition shadow-lg hover:shadow-xl hover:-translate-y-0.5">Re-Open Finding</button>
+                                <% } %>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- AI Assistant Integration -->
+                    <section class="bg-gradient-to-r from-violet-900 to-fuchsia-900 p-8 rounded-2xl border border-violet-800 text-white shadow-xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10">
+                            <svg class="h-32 w-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                        </div>
+                        <h3 class="text-[10px] font-black text-fuchsia-300 uppercase mb-4 tracking-[0.4em] flex items-center gap-2 relative z-10">
+                            <span class="h-1.5 w-1.5 bg-fuchsia-400 rounded-full animate-pulse"></span>
+                            AI AUTO-REMEDIATION ENGINE
+                        </h3>
+                        <p class="text-sm font-medium text-violet-200 mb-6 relative z-10 max-w-2xl">
+                            Deploy our Neural Engine to instantly analyze this vulnerability context and generate a deterministic code-level solution or detailed mitigation command sequence.
+                        </p>
+                        
+                        <button id="askAiBtn" onclick="askAiToFix()" class="relative z-10 px-6 py-3 bg-white text-violet-900 text-xs font-black uppercase tracking-wider rounded-xl hover:bg-violet-100 transition shadow-lg flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                           </svg>
+                           Generate Exact Fix Strategy
+                        </button>
+
+                        <div id="aiLoading" class="hidden relative z-10 mt-6 flex items-center gap-3 text-fuchsia-200 text-sm font-mono">
+                            <svg class="animate-spin h-5 w-5 text-fuchsia-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                            Synthesizing technical solution...
+                        </div>
+
+                        <div id="aiResponsePanel" class="hidden relative z-10 mt-6 bg-slate-900/80 backdrop-blur border border-white/10 rounded-xl p-6 text-sm text-slate-300 font-mono shadow-inner overflow-x-auto leading-relaxed prose prose-invert max-w-none">
+                            <!-- Markdown is rendered here -->
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -124,6 +187,65 @@
             <span>Scan Parent: <%= finding.scanId %></span>
         </div>
     </div>
-</body>
 
+    <script>
+        async function updateStatus(newStatus) {
+            if (!confirm(`Are you sure you want to change the status to ${newStatus}? This will recalculate the global scan risk score.`)) return;
+            
+            try {
+                const response = await fetch(`/dashboard/finding/<%= finding.id %>/status`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        status: newStatus, 
+                        resolutionNote: 'Updated via Triage Command Center by Fleet Commander.' 
+                    })
+                });
+                
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    const err = await response.json();
+                    alert(`Failed to update status: ${err.message || 'Unknown error'}`);
+                }
+            } catch (error) {
+                console.error('Error updating status:', error);
+                alert('An error occurred while communicating with the orchestrator.');
+            }
+        }
+
+        async function askAiToFix() {
+            const btn = document.getElementById('askAiBtn');
+            const loading = document.getElementById('aiLoading');
+            const panel = document.getElementById('aiResponsePanel');
+            
+            btn.style.display = 'none';
+            loading.style.display = 'flex';
+            panel.style.display = 'none';
+
+            try {
+                // Configuração base do interpretador Markdown para evitar vulnerabilidades de CSS nativo
+                marked.setOptions({ breaks: true, gfm: true });
+
+                const res = await fetch(`/ai/remediate/<%= finding.id %>`, { method: 'POST' });
+                const data = await res.json();
+                
+                loading.style.display = 'none';
+                panel.style.display = 'block';
+                
+                if (data.success) {
+                    panel.innerHTML = marked.parse(data.aiAdvice);
+                } else {
+                    panel.innerHTML = `<span class="text-red-400">Error: Could not retrieve AI response.</span>`;
+                    btn.style.display = 'flex';
+                }
+            } catch (error) {
+                loading.style.display = 'none';
+                panel.style.display = 'block';
+                panel.innerHTML = `<span class="text-red-400">Fatal error communicating with Neural Engine.</span>`;
+                btn.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
 </html>

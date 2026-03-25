@@ -62,6 +62,14 @@ export declare class DashboardController {
             metadata: import("@prisma/client/runtime/client").JsonValue | null;
         };
     }>;
+    updateFindingStatus(id: string, body: {
+        status: string;
+        resolutionNote?: string;
+    }): Promise<{
+        success: boolean;
+        riskScore: number;
+        status: any;
+    }>;
     monitoring(): Promise<{
         scans: any[];
     }>;

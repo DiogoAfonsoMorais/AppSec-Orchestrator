@@ -35,6 +35,53 @@ let ScansController = ScansController_1 = class ScansController {
             throw error;
         }
     }
+    async triggerCicdScan(body) {
+        this.logger.warn(`[CI/CD GATEWAY] Incoming automated tactical strike for ${body.target}`);
+        const prisma = this.scansService.prisma;
+        let projectId = null;
+        if (body.projectName) {
+            let project = await (prisma.project || prisma.projects).findFirst({ where: { name: body.projectName } });
+            if (!project) {
+                this.logger.log(`[CI/CD GATEWAY] Provisioning new project combat zone: ${body.projectName}`);
+                project = await (prisma.project || prisma.projects).create({ data: { name: body.projectName, description: 'Auto-provisioned via CI/CD Pipeline' } });
+            }
+            projectId = project.id;
+        }
+        const result = await this.scansService.create({
+            target: body.target,
+            targetType: body.targetType,
+            profile: body.profile,
+            projectId: projectId
+        });
+        return {
+            success: true,
+            scanId: result.scanId,
+            message: "Automated security assessment initialized. Polling endpoint active."
+        };
+    }
+    async getCicdStatus(id, failThreshold) {
+        const prisma = this.scansService.prisma;
+        const scan = await prisma.scan.findUnique({ where: { id }, select: { status: true, riskScore: true, currentStage: true } });
+        if (!scan)
+            return { error: 'Assessment phase not found logic error.' };
+        const threshold = failThreshold ? parseInt(failThreshold, 10) : 0;
+        let passed = null;
+        if (scan.status === 'COMPLETED' || scan.status === 'FAILED') {
+            passed = (scan.riskScore || 0) <= threshold;
+            if (!passed)
+                this.logger.warn(`[CI/CD GATEWAY] SCAN ${id} CHUMBOU NO QUALITY GATE. Score: ${scan.riskScore} > Threshold: ${threshold}`);
+            else
+                this.logger.log(`[CI/CD GATEWAY] SCAN ${id} APROVADO. Score: ${scan.riskScore} <= Threshold: ${threshold}`);
+        }
+        return {
+            id,
+            status: scan.status,
+            stage: scan.currentStage,
+            riskScore: scan.riskScore || 0,
+            passed,
+            thresholdUsed: threshold
+        };
+    }
     async exportScanReport(id) {
         return this.scansService.exportReport(id);
     }
@@ -51,6 +98,21 @@ __decorate([
     __metadata("design:paramtypes", [create_scan_dto_1.CreateScanDto]),
     __metadata("design:returntype", Promise)
 ], ScansController.prototype, "createScan", null);
+__decorate([
+    (0, common_1.Post)('cicd'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], ScansController.prototype, "triggerCicdScan", null);
+__decorate([
+    (0, common_1.Get)('cicd/:id/status'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Query)('failThreshold')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", Promise)
+], ScansController.prototype, "getCicdStatus", null);
 __decorate([
     (0, common_1.Get)(':id/export'),
     __param(0, (0, common_1.Param)('id')),

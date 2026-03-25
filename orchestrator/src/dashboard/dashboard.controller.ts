@@ -1,4 +1,4 @@
-import { Controller, Get, Render, InternalServerErrorException, Param, Logger } from '@nestjs/common';
+import { Controller, Get, Render, InternalServerErrorException, Param, Logger, Patch, Body } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { join } from 'path';
 import { existsSync, readdirSync } from 'fs';
@@ -111,6 +111,40 @@ export class DashboardController {
     return { finding };
   }
 
+  @Patch('finding/:id/status')
+  async updateFindingStatus(
+    @Param('id') id: string,
+    @Body() body: { status: string, resolutionNote?: string }
+  ) {
+    const finding = await this.prisma.finding.update({
+      where: { id },
+      data: { 
+        status: body.status,
+        resolutionNote: body.resolutionNote || null
+      }
+    });
+
+    // Recalculate Scan Risk Score
+    const allFindings = await this.prisma.finding.findMany({ where: { scanId: finding.scanId } });
+    let riskScore = 0;
+    allFindings.forEach(f => {
+      // Ignore false positives and accepted risks in global score
+      if (f.status === 'FALSE_POSITIVE' || f.status === 'ACCEPTED_RISK' || f.status === 'RESOLVED') return;
+
+      if (f.severity === 'CRITICAL') riskScore += 10;
+      else if (f.severity === 'HIGH') riskScore += 7;
+      else if (f.severity === 'MEDIUM') riskScore += 4;
+      else if (f.severity === 'LOW') riskScore += 1;
+    });
+
+    await this.prisma.scan.update({
+      where: { id: finding.scanId },
+      data: { riskScore }
+    });
+
+    return { success: true, riskScore, status: finding.status };
+  }
+
   @Get('monitoring')
   @Render('monitoring')
   async monitoring() {
@@ -136,15 +170,26 @@ export class DashboardController {
 
   private calculateScanStats(scan: any) {
     const counts = { critical: 0, high: 0, medium: 0, low: 0, info: 0 };
+    let calculatedRiskPoints = 0;
+
     (scan.findings || []).forEach((f: any) => {
-      const sev = (f.severity || 'info').toLowerCase();
-      if (counts.hasOwnProperty(sev)) (counts as any)[sev]++;
-      else counts.info++;
+      const isIgnored = f.status === 'FALSE_POSITIVE' || f.status === 'ACCEPTED_RISK' || f.status === 'RESOLVED';
+      if (!isIgnored) {
+          const sev = (f.severity || 'info').toLowerCase();
+          if (counts.hasOwnProperty(sev)) (counts as any)[sev]++;
+          else counts.info++;
+          
+          if (f.severity === 'CRITICAL') calculatedRiskPoints += 25;
+          else if (f.severity === 'HIGH') calculatedRiskPoints += 10;
+          else if (f.severity === 'MEDIUM') calculatedRiskPoints += 5;
+          else if (f.severity === 'LOW') calculatedRiskPoints += 1;
+      }
     });
 
-    let score = (scan as any).riskScore !== null && (scan as any).riskScore !== undefined && (scan as any).riskScore > 0
+    // If DB has a riskScore (like '47'), we map it to 0-100 logic for the frontend generic grade
+    let score = (scan as any).riskScore !== null && (scan as any).riskScore !== undefined
         ? (scan as any).riskScore 
-        : (100 - (counts.critical * 25 + counts.high * 10 + counts.medium * 5 + counts.low * 1));
+        : (100 - calculatedRiskPoints);
     score = Math.max(0, score);
     
     const screenshots = this.getScreenshots(scan.id);

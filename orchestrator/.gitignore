@@ -3,3 +3,13 @@ node_modules
 .env
 
 /generated/prisma
+
+# Compiled Output
+dist
+
+# Temporary Orchestrator Intelligence
+tmp_reports/
+
+# Visual Reconnaissance Vaults (Eyewitness)
+public/screenshots/
+!public/screenshots/.gitkeep

@@ -110,6 +110,34 @@ let DashboardController = class DashboardController {
             throw new common_1.InternalServerErrorException('Finding not found');
         return { finding };
     }
+    async updateFindingStatus(id, body) {
+        const finding = await this.prisma.finding.update({
+            where: { id },
+            data: {
+                status: body.status,
+                resolutionNote: body.resolutionNote || null
+            }
+        });
+        const allFindings = await this.prisma.finding.findMany({ where: { scanId: finding.scanId } });
+        let riskScore = 0;
+        allFindings.forEach(f => {
+            if (f.status === 'FALSE_POSITIVE' || f.status === 'ACCEPTED_RISK' || f.status === 'RESOLVED')
+                return;
+            if (f.severity === 'CRITICAL')
+                riskScore += 10;
+            else if (f.severity === 'HIGH')
+                riskScore += 7;
+            else if (f.severity === 'MEDIUM')
+                riskScore += 4;
+            else if (f.severity === 'LOW')
+                riskScore += 1;
+        });
+        await this.prisma.scan.update({
+            where: { id: finding.scanId },
+            data: { riskScore }
+        });
+        return { success: true, riskScore, status: finding.status };
+    }
     async monitoring() {
         try {
             const activeScans = await this.prisma.scan.findMany({
@@ -132,16 +160,28 @@ let DashboardController = class DashboardController {
     }
     calculateScanStats(scan) {
         const counts = { critical: 0, high: 0, medium: 0, low: 0, info: 0 };
+        let calculatedRiskPoints = 0;
         (scan.findings || []).forEach((f) => {
-            const sev = (f.severity || 'info').toLowerCase();
-            if (counts.hasOwnProperty(sev))
-                counts[sev]++;
-            else
-                counts.info++;
+            const isIgnored = f.status === 'FALSE_POSITIVE' || f.status === 'ACCEPTED_RISK' || f.status === 'RESOLVED';
+            if (!isIgnored) {
+                const sev = (f.severity || 'info').toLowerCase();
+                if (counts.hasOwnProperty(sev))
+                    counts[sev]++;
+                else
+                    counts.info++;
+                if (f.severity === 'CRITICAL')
+                    calculatedRiskPoints += 25;
+                else if (f.severity === 'HIGH')
+                    calculatedRiskPoints += 10;
+                else if (f.severity === 'MEDIUM')
+                    calculatedRiskPoints += 5;
+                else if (f.severity === 'LOW')
+                    calculatedRiskPoints += 1;
+            }
         });
-        let score = scan.riskScore !== null && scan.riskScore !== undefined && scan.riskScore > 0
+        let score = scan.riskScore !== null && scan.riskScore !== undefined
             ? scan.riskScore
-            : (100 - (counts.critical * 25 + counts.high * 10 + counts.medium * 5 + counts.low * 1));
+            : (100 - calculatedRiskPoints);
         score = Math.max(0, score);
         const screenshots = this.getScreenshots(scan.id);
         let grade = 'F';
@@ -216,6 +256,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], DashboardController.prototype, "findingDetail", null);
+__decorate([
+    (0, common_1.Patch)('finding/:id/status'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], DashboardController.prototype, "updateFindingStatus", null);
 __decorate([
     (0, common_1.Get)('monitoring'),
     (0, common_1.Render)('monitoring'),

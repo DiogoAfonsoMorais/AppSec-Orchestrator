@@ -20,6 +20,7 @@ const dashboard_module_1 = require("./dashboard/dashboard.module");
 const projects_module_1 = require("./projects/projects.module");
 const notifications_module_1 = require("./notifications/notifications.module");
 const integrations_module_1 = require("./integrations/integrations.module");
+const ai_module_1 = require("./ai/ai.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -45,6 +46,7 @@ exports.AppModule = AppModule = __decorate([
             projects_module_1.ProjectsModule,
             notifications_module_1.NotificationsModule,
             integrations_module_1.IntegrationsModule,
+            ai_module_1.AiModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
