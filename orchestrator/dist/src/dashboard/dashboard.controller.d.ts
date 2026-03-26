@@ -33,27 +33,27 @@ export declare class DashboardController {
     findingDetail(id: string): Promise<{
         finding: {
             scan: {
-                id: string;
                 target: string;
                 targetType: string;
                 profile: string;
+                projectId: string | null;
+                headers: import("@prisma/client/runtime/client").JsonValue | null;
+                authConfig: import("@prisma/client/runtime/client").JsonValue | null;
+                id: string;
                 status: string;
                 currentStage: string | null;
                 progress: number;
                 liveLogs: string | null;
                 createdAt: Date;
                 finishedAt: Date | null;
-                headers: import("@prisma/client/runtime/client").JsonValue | null;
-                authConfig: import("@prisma/client/runtime/client").JsonValue | null;
                 userId: string | null;
-                projectId: string | null;
             };
         } & {
+            scanId: string;
             id: string;
             createdAt: Date;
-            severity: string;
-            scanId: string;
             toolName: string;
+            severity: string;
             description: string;
             owaspCategory: string | null;
             evidence: string | null;

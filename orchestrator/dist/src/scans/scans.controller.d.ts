@@ -58,20 +58,20 @@ export declare class ScansController {
     cancelScan(id: string): Promise<{
         message: string;
         scan: {
-            id: string;
             target: string;
             targetType: string;
             profile: string;
+            projectId: string | null;
+            headers: import("@prisma/client/runtime/client").JsonValue | null;
+            authConfig: import("@prisma/client/runtime/client").JsonValue | null;
+            id: string;
             status: string;
             currentStage: string | null;
             progress: number;
             liveLogs: string | null;
             createdAt: Date;
             finishedAt: Date | null;
-            headers: import("@prisma/client/runtime/client").JsonValue | null;
-            authConfig: import("@prisma/client/runtime/client").JsonValue | null;
             userId: string | null;
-            projectId: string | null;
         };
     }>;
 }
