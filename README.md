@@ -295,7 +295,7 @@ npm run test:e2e
 
 ## 📜 License
 
-This project is **UNLICENSED** (Private).
+This project is **LICENSED** (MIT).
 
 ---
 
